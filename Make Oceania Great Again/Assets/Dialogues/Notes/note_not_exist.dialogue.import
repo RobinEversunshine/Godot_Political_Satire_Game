@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://x6cuj8yuakpn"
+path="res://.godot/imported/note_not_exist.dialogue-704a2d530c6890d086f5106da0a21cc1.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/Notes/note_not_exist.dialogue"
+dest_files=["res://.godot/imported/note_not_exist.dialogue-704a2d530c6890d086f5106da0a21cc1.tres"]
+
+[params]
+
+defaults=true

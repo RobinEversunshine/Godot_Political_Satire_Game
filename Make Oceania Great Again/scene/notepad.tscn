@@ -1,0 +1,711 @@
+[gd_scene load_steps=21 format=3 uid="uid://epqi61pt1yts"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_u7blf"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_s7q08"]
+[ext_resource type="Script" path="res://scene/notepad.gd" id="3_clogx"]
+[ext_resource type="StyleBox" uid="uid://dlrnw2kh1yo0u" path="res://Assets/Resource/Themes/pixel/button_flat_line_reverse.tres" id="4_w32q4"]
+[ext_resource type="PackedScene" uid="uid://n1nfctpcpo24" path="res://Main/Components/Notepad/note_box.tscn" id="4_x0i6e"]
+[ext_resource type="Script" path="res://Main/Components/Notepad/NotePage.gd" id="5_cem22"]
+[ext_resource type="Texture2D" uid="uid://dut5nhdag7by" path="res://Assets/Textures/button/back.png" id="6_scotk"]
+[ext_resource type="FontFile" uid="uid://cckottdyuce5y" path="res://Assets/Fonts/zh/VonwaonBitmap-16px.ttf" id="8_dn2d7"]
+[ext_resource type="PackedScene" uid="uid://e2xpynkgr2ch" path="res://Main/Components/Notepad/password_page.tscn" id="8_hjlf5"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="8_u7g6o"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="9_fid01"]
+
+[sub_resource type="Resource" id="Resource_c7cq8"]
+script = ExtResource("9_fid01")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_5mi3a"]
+script = ExtResource("9_fid01")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Resource" id="Resource_2vxsq"]
+script = ExtResource("9_fid01")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_uppqv"]
+script = ExtResource("9_fid01")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Resource" id="Resource_j6pdo"]
+script = ExtResource("9_fid01")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_am38u"]
+script = ExtResource("9_fid01")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Animation" id="Animation_v0qho"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotePage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoteList:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoteList:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_12fg2"]
+resource_name = "into_note"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("NotePage:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("NoteList:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoteList:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3l8et"]
+_data = {
+"RESET": SubResource("Animation_v0qho"),
+"into_note": SubResource("Animation_12fg2")
+}
+
+[node name="Notepad" type="Control"]
+material = ExtResource("1_u7blf")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_s7q08")
+script = ExtResource("3_clogx")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="NoteList" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 500.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="NoteList"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="header" type="Control" parent="NoteList"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 40.0
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="NoteList/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="NoteList/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="NoteList/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Notepad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonList" type="Control" parent="NoteList"]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 60.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="NoteList/ButtonList"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NoteList/ButtonList"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="NoteList/ButtonList/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatLineButton"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = ExtResource("4_w32q4")
+disabled = true
+text = "Daily"
+
+[node name="Button2" type="Button" parent="NoteList/ButtonList/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatLineButton"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = ExtResource("4_w32q4")
+text = "Ebooks"
+
+[node name="Button3" type="Button" parent="NoteList/ButtonList/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatLineButton"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = ExtResource("4_w32q4")
+text = "Achieves"
+
+[node name="Button4" type="Button" parent="NoteList/ButtonList/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"FlatLineButton"
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_styles/disabled = ExtResource("4_w32q4")
+text = "Stories"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NoteList"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 61.0
+offset_right = 304.0
+offset_bottom = 480.0
+mouse_filter = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NoteList/ScrollContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 415)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NoteList/ScrollContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("8_u7g6o")
+wheel_scroll_damper = SubResource("Resource_c7cq8")
+dragging_scroll_damper = SubResource("Resource_5mi3a")
+
+[node name="MarginContainer" type="MarginContainer" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Note_black" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_black"
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Note_black"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "一名大洋国的间谍走进了东亚国的酒吧，他操着流利的东亚国语与老板交流，但老板一眼就看出他是个间谍。间谍心中很是慌张，他又跟老板谈起东亚国的传统文化，滔滔不绝连专门研究东亚国文化的学者都甘拜下风，但老板还是坚持认为眼前的人是一个间谍。间谍吓得满头大汗，他随即跳起东亚国的传统舞蹈，跳的比当地人还要正宗。但这仍未能说服老板。间谍投降了，他问老板：“你到底是怎么看出来我是个间谍的？”
+
+“老兄，”老板回答，“我们东亚国没有黑人。”"
+
+[node name="Note_fascism" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_fascism"
+note_hint = "Note_fascism_hint"
+locked = true
+password = "fascism"
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Note_fascism"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "大洋国公民报 2077年9月3日
+
+所有大洋国的公民都应当警惕法西斯主义！
+
+法西斯主义是一种威权的极端民族主义。其特点是对国家领导的个人崇拜、重视国家意识形态的宣传，公共机构拥有过度的公权力，强大的社会和经济统一执行力，以及强制镇压反对意见。
+
+以下是法西斯主义的五大基础理论：
+
+种族优秀论（强调民族自豪感）
+国家至上论（国家利益高于一切）
+领袖至上论（教世主、大数星）
+意志至上论（坚强意志和奋斗精神可以战胜一切)
+暴力和强权就是真理论（反对民主自由，人道主义)
+
+欧亚国的民众，你们当中如果还有尚存一丝良知的人，那就自检一下，你是否有法西斯思想倾向：
+你是否强调民族自豪感？
+你是否认同国家利益离于一切？
+你是否认同人民需要强势领袖？
+你是否认同人定胜天？
+你是否认同国际上武力和强权才是真理？
+
+如果你全部认同这五条，你就是一个彻头彻尾的法西斯主义者！
+
+“没有了祖国，你将什么都不是。”
+
+法西斯就是以国家集体压榨个体，淹没个体，反个体主义和自由主义，关心国家却不关心人，不关心每一个个人的权利和幸福，把国家当成牟利的工具，把人的生命当作消耗品。
+
+这，就是欧亚国政府的原罪！
+而欧亚国的居民全部都是政府的帮凶，他们没有一个是无辜的！
+在至高无上的拿破仑总统的英明领导下，星光旗必将插满欧亚国的每一寸土地！
+
+
+--该报道于2074年9月被大洋国政府封杀。撰稿人被判十年有期徒刑，理由是企图颠覆国家政权。"
+
+[node name="Note_vaccines" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_vaccines"
+disabled = true
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer/MarginContainer/VBoxContainer/Note_vaccines"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "这是德克里特医学中心的一位工作人员留下的笔记。虽然文件损坏严重，但还是能提取到不少有用的关键信息。
+这篇笔记写于2059年。
+
+///////////////////////////-----aa
+
+大洋国早在20年年年代就研发出了纳米机器人的技术。该技术ä»£å‘ç”Ÿçš„å¤§æ主要用来来来来来ç§æ–°çš„ã€‚ã€‚ã€‚ã€‚
+就就¤Ÿéšæ—¶ç›‘è§就就就能够随时监视大洋国的每一个人
+
+±å°±å°±èƒ½å†å¤§æ´‹å›½çš„æ¯ä¸€ä¸ªäºº
+å› æ¤æ¯éšš„å¤§é¡»æŽ¥
+
+20年代发生的大流行迫使每个大洋国公民都强制接种疫苗苗苗苗”10åˆ°20å¹´ï¼Œ
+°¸ä¹…æœ‰æ•就连新生儿接种的疫苗里æ‰€æœ‰ç
+然而¿æŽ¥ç§çš„这种纳米机器人并不是永久有效的æ´‹å›½å…¬æ°‘éƒ½å¿…
+因此每隔3到5年å„ç–«è‹—é‡Œã所有的大洋国公民都必须接种新的—è‹—è‹—è‹—
+
+ã€‚ã€‚ã€‚æ–°ç”Ÿ€‚ã€‚ã€‚ã€‚
+ç„¶è€Œï¼Œè¿™ç§çº³ç±³æœºå™¨äººå¹¶ä¸æ˜¯
+0å¹´ä»£å‘ç”Ÿçš„å¤§æµè¡Œè¿«ä½¿æ¯ä¸ªå¤§æ´‹å›½å…¬æ°‘éƒ½å¼ºåˆ¶æ
+Ž¥ç§ç–«è‹æˆçš„ã€‚ã€‚ã€‚ã€‚ã€‚
+ç§æ–°çš„ã€‚ã€‚ã€‚ã€‚
+¸»è¦ç”¨æ¥æ¥æ¥æ¥æ¥
+å°±å°±å°±å°±å°±èƒ½å¤Ÿéšæ—¶ç›‘è§†å¤§æ´‹å›½çš„æ¯ä¸€ä¸ªäºº
+
+我的女儿¤§æ´‹绝不能被大洋国政府染指ƒ½å¤Ÿé"
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="NoteList/ScrollContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("8_u7g6o")
+wheel_scroll_damper = SubResource("Resource_2vxsq")
+dragging_scroll_damper = SubResource("Resource_uppqv")
+
+[node name="MarginContainer" type="MarginContainer" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="Note_2plus2" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_2plus2"
+note_hint = "Note_2plus2_hint"
+locked = true
+password = "1522"
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer/Note_2plus2"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "大洋国扩张之后会好好经营，占领一块土地之后那块土地上的人就会变成自己的子民，大家都是一家人，那就谈不上侵略，只能算统一。像欧亚国这种殖民帝国那样，把殖民地的人不当人，只想着劫掠吸血，那无论过多少年，他们也是侵略者。
+
+这就是大洋国的包容性，这也是大洋国能延续至今的原因之一。
+
+---摘自局域网上的评论
+
+
+二加二等于五是老大哥时代的一句宣传口号，当时的意思是：只要老大哥愿意，二加二就等于五。
+
+大洋国的人民至今仍然坚守这一信条。在近百年的双重思想驯服下，大洋国人的道德标准和判断力变得...十分微妙。就像大洋国侵略周边国家，让无数人家破人亡时，大多数人都在拍手叫好，甚至还觉得他们的政府做的还不够。但一旦主角变成欧亚国，他们又摇身一变变成了世界上最悲天悯人的圣人，竟开始假惺惺地同情起东亚国的人民起来了。要知道他们可是连自己国家每天发生的惨剧都视而不见。"
+
+[node name="Note_page" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_page"
+note_hint = "Note_page_hint"
+disabled = true
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer/Note_page"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "大洋国公民报 2073年5月2日
+
+
+我的决策没有错过，只是执行的时候出了问题。
+如果有人发现我有错了，却不敢指出我的问题，那就是他的问题了，证明他是一个没有责任心的人。
+---欧亚国元首
+
+
+为什么欧亚国至今不愿意承认任何错误？
+
+笔者认为，在欧亚国这种权力斗争严重、没有退出机制和宽容氛围的地方，承认错误意味着个人地位会迅速跌落，变得毫无价值。
+
+种种证据表明，欧亚国的大部分居民对于斗争和冲突的兴趣要远远高于对真相和学理的讨论。因为真正喜欢思考的人都知道，探究真理必然是会犯错的。然而，在一个充满斗争和霸权思维的恶劣环境里，由于认错的成本太高，以至于死不认错成了唯一的选择。
+
+而欧亚国的元首就像是童话故事里的国王一样，周围所有人都在阿谀奉承他的衣服究竟是有多么华丽。但实际上所有人，包括大洋国和欧亚国的公民都能看的出来，他只不过是赤身裸体地招摇过市罢了。
+
+对于他这样的人来说，每当你的命令没有被任何人质疑，你就会有一种错觉：你的命令是无所不能的，甚至可以违反科学和逻辑。欧亚国的特色独裁者政治往往会犯这种错误。
+
+反观我们国家：大洋国之所以千年不朽的原因就在于至高无上的拿破仑总统一届又一届的英明领导和他与生俱来的纠错本能。正是因为伟大的拿破仑总统的英明领导，大洋国才具有强大的自我纠错和制度修复能力。
+
+所以以长远眼光来看，欧亚国的崩溃并非什么不可能的事情，恰恰相反，它可能比我们所有人想象的还要来的快。笔者在这里作出大胆的预测：只要欧亚国元首仍然不肯承认错误，欧亚国最多十年之内就会迎来崩溃的悲惨结局。"
+
+[node name="Note_color" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_color"
+note_hint = "Note_color_hint"
+disabled = true
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer/Note_color"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "2083年，大洋国GDP增长预计为9.252%，远超世界上的任何国家。
+---大洋国公民报
+
+
+但我觉得那是因为德克病毒杀死了太多大洋国人，所以人均GDP才上升了。"
+
+[node name="Note_president" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer" instance=ExtResource("4_x0i6e")]
+layout_mode = 2
+mouse_filter = 1
+note_name = "Note_president"
+note_hint = "Note_president_hint"
+disabled = true
+
+[node name="Label" type="Label" parent="NoteList/ScrollContainer/HBoxContainer/ScrollContainer2/MarginContainer/VBoxContainer/Note_president"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 18.0
+mouse_filter = 1
+text = "王国里第一条禁令是国王的名字，说出来就会掉脑袋，但是王国里除了国王之外并没有别的话题，于是人们为国王编出昵称。
+
+国王的名字可以用词法学方式重组、倒装，在王国里长大的孩子看懂了，就刻在墙上、写在碎纸条上让风吹走，让牧羊的孩子捡起来。国王的名字有很多的同音词，于是牧羊的孩子把这些词编成了歌，从南到北传唱了很多年。
+
+国王发现了之后，下令禁止传颂一切指代他的名字，国王的人出动，不少谐音谐形的词遭了秧，不少字典付之一炬。
+
+后来国王的名字只能通过比喻和寓言来指涉。比喻像是一个离家很远的人通过电话给一个盲人指路，寓言像是一个没有去过法国的人梦见了巴黎的每一块砖每一块瓦。首长、司机、龙尾骨、迎客松、复仇、壶、湖、上上签、大人、内人、讽刺剧、莎士比亚、智利人、下水、他、他们、你。聪明的比喻家连代词都要加以利用。
+
+国王发现了之后，下令组建意义委员会，审查意义。委员会的成员们抓着光秃秃的脑壳，日夜兼程地解读世界上所有的文字，挖掘一切潜在含义。在诠释的道路上，委员们死死追着比喻家。委员抓住一个比喻，比喻家就造出一个新的词。
+
+最后一天，比喻家发现意义用完了。国王的名字用尽了世界上所有的意义。委员会气喘吁吁地把比喻家埋了，但是这个时候，国王的名字已经世人皆知了。街上的每一个人都知道国王的名字，尽管他们说不出来。尽管他们说不出这个名字，他们在谈论花鸟树木的时候，却总是在阳否阴述地谈论国王。委员们看得目瞪口呆。
+
+国王发现了之后，下令禁止一切语言。王国里每一个人的嘴都闭上了，但是让委员会没想到的是，国王的名字在包括了所有意义之后也成为了沉默。国王的原名不再重要，国王现在有无数个名字，无数个名字包括了人类声道能发出的一切声音的一切组合，也包括沉默。王国里每一个人的嘴都闭上了，这个王国里的沉默震耳欲聋。
+
+国王的真名响彻宇宙。"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_right = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="NotePage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 500.0
+mouse_filter = 2
+script = ExtResource("5_cem22")
+
+[node name="ColorRect" type="ColorRect" parent="NotePage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="header" type="Control" parent="NotePage"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 40.0
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="NotePage/header"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="NotePage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteName" type="Label" parent="NotePage/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Notepad"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="NotePage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="NotePage/header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("6_scotk")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Content" type="Control" parent="NotePage"]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="NotePage/Content"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+script = ExtResource("8_u7g6o")
+wheel_scroll_damper = SubResource("Resource_j6pdo")
+dragging_scroll_damper = SubResource("Resource_am38u")
+hide_scrollbar_over_time = true
+
+[node name="MarginContainer" type="MarginContainer" parent="NotePage/Content/ScrollContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(298, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="NoteContent" type="RichTextLabel" parent="NotePage/Content/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/line_separation = 6
+theme_override_fonts/normal_font = ExtResource("8_dn2d7")
+bbcode_enabled = true
+text = "Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+The answer is[color=black]Blablablablablabla[/color]
+The answer is yours. So do not worry about anything anymore."
+fit_content = true
+scroll_active = false
+
+[node name="PasswordPage" parent="." instance=ExtResource("8_hjlf5")]
+layout_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3l8et")
+}
+
+[connection signal="pressed" from="NotePage/header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]

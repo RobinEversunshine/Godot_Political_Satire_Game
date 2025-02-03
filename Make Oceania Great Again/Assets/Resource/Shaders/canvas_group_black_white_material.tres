@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://cp7ii2vgpoi8v"]
+
+[ext_resource type="Shader" uid="uid://0eiquurrqsec" path="res://Assets/Resource/Shaders/canvas_black_white_visual_material.tres" id="1_kc74t"]
+[ext_resource type="Gradient" uid="uid://dxrympyaopmnv" path="res://Assets/Resource/ColorGradients/shader_gradient.tres" id="2_bqk4h"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wvprt"]
+gradient = ExtResource("2_bqk4h")
+
+[resource]
+shader = ExtResource("1_kc74t")
+shader_parameter/Gradient = SubResource("GradientTexture1D_wvprt")

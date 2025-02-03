@@ -1,0 +1,251 @@
+[gd_scene load_steps=15 format=3 uid="uid://cye16ingmrs4x"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_pup4v"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_62b3t"]
+[ext_resource type="Script" path="res://scene/chats.gd" id="3_23ia6"]
+[ext_resource type="PackedScene" uid="uid://bxrty3vhjy1qd" path="res://Main/Components/Chats/chat_box.tscn" id="4_6x75v"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_25732"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_hwjxi"]
+[ext_resource type="Resource" uid="uid://bwqrkh2dbqa3o" path="res://Assets/Resource/Contacts/contact_candleheart.tres" id="7_kmaaj"]
+[ext_resource type="PackedScene" uid="uid://cevqntvvf3dxp" path="res://Main/Components/Chats/chat_page_sample.tscn" id="7_kwv3p"]
+[ext_resource type="Resource" uid="uid://dmvoj1o8f1ri4" path="res://Assets/Resource/Contacts/contact_boss.tres" id="8_mfm8b"]
+
+[sub_resource type="Resource" id="Resource_x3j6r"]
+script = ExtResource("5_hwjxi")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_0tovh"]
+script = ExtResource("5_hwjxi")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Animation" id="Animation_cmols"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChatList:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChatList:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChatPage:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_35lb1"]
+resource_name = "into_chat"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChatList:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChatList:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ChatPage:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a2a8s"]
+_data = {
+"RESET": SubResource("Animation_cmols"),
+"into_chat": SubResource("Animation_35lb1")
+}
+
+[node name="Chats" type="Control"]
+material = ExtResource("1_pup4v")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_62b3t")
+script = ExtResource("3_23ia6")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ChatList" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 500.0
+mouse_filter = 2
+
+[node name="header" type="Control" parent="ChatList"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="ChatList/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="ChatList/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Chats"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ChatList"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -440.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+script = ExtResource("4_25732")
+wheel_scroll_damper = SubResource("Resource_x3j6r")
+dragging_scroll_damper = SubResource("Resource_0tovh")
+
+[node name="MarginContainer" type="MarginContainer" parent="ChatList/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ChatList/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 1
+
+[node name="ChatBox" parent="ChatList/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_6x75v")]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ChatBox2" parent="ChatList/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("4_6x75v")]
+layout_mode = 2
+mouse_filter = 1
+contact = ExtResource("8_mfm8b")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_right = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ChatPage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 500.0
+mouse_filter = 2
+
+[node name="ChatPageSample" parent="ChatPage" instance=ExtResource("7_kwv3p")]
+layout_mode = 0
+contact = ExtResource("7_kmaaj")
+
+[node name="ChatPageSample2" parent="ChatPage" instance=ExtResource("7_kwv3p")]
+layout_mode = 0
+contact = ExtResource("8_mfm8b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_a2a8s")
+}

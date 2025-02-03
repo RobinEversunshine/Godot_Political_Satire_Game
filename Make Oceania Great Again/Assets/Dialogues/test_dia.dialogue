@@ -1,0 +1,24 @@
+~ call_start
+
+if has_met == false:
+	Nathan: [[Hi|Hello|Howdy]], \nthis is some dialogue.[next=2]
+	set has_met = true
+else:
+	Nathan: Hello again!
+
+Nathan: [#mission=Target's First Name]Here are some choices.
+- First one [if has_met == true]
+	Player: I choose the first one.
+	Nathan: You picked the first one.
+- Second one
+	Player: I choose the second one.
+	Nathan: You picked the second one.
+	while iii < 5:
+		Nathan: iii is {{iii}}.
+		do iii += 1
+- Start again => call_start
+- End the conversation => END
+Player:  This conversation ends. This conversation ends. This conversation ends.
+#do mutation()
+=> call_start
+=> END

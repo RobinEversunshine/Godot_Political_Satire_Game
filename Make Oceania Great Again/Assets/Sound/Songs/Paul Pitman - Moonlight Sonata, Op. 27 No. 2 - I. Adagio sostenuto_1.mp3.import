@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cbv4oco8c477r"
+path="res://.godot/imported/Paul Pitman - Moonlight Sonata, Op. 27 No. 2 - I. Adagio sostenuto_1.mp3-fe99dc282e6619d9be12787a3ee829d7.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Songs/Paul Pitman - Moonlight Sonata, Op. 27 No. 2 - I. Adagio sostenuto_1.mp3"
+dest_files=["res://.godot/imported/Paul Pitman - Moonlight Sonata, Op. 27 No. 2 - I. Adagio sostenuto_1.mp3-fe99dc282e6619d9be12787a3ee829d7.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

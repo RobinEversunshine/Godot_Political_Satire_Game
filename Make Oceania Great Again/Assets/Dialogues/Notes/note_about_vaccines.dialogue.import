@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://djo880bgh52ws"
+path="res://.godot/imported/note_about_vaccines.dialogue-aaf4e6ec5014845e9a109dfda0f86208.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/Notes/note_about_vaccines.dialogue"
+dest_files=["res://.godot/imported/note_about_vaccines.dialogue-aaf4e6ec5014845e9a109dfda0f86208.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,115 @@
+[gd_resource type="Theme" load_steps=19 format=3 uid="uid://n3ns3n53r5ve"]
+
+[ext_resource type="StyleBox" uid="uid://jreqk0obhgru" path="res://Assets/Resource/Themes/pixel/pixel_style_panel_texture.tres" id="1_geydi"]
+[ext_resource type="StyleBox" uid="uid://drde2dw1q03t3" path="res://Assets/Resource/Themes/pixel/pixel_style_panel_texture_reverse.tres" id="2_d60ov"]
+[ext_resource type="Texture2D" uid="uid://hho0f6pxl0rv" path="res://Assets/Textures/button/checkbutton2.png" id="3_rlwr1"]
+[ext_resource type="Texture2D" uid="uid://bjk440wfbbtxi" path="res://Assets/Textures/button/checkbutton1.png" id="4_rthc1"]
+[ext_resource type="StyleBox" uid="uid://fgeeg4b0wau7" path="res://Assets/Resource/Themes/pixel/button_flat_line.tres" id="5_mxex3"]
+[ext_resource type="StyleBox" uid="uid://dv201jwrsky1j" path="res://Assets/Resource/Themes/pixel/pixel_style_button_texture_pressed.tres" id="5_sylta"]
+[ext_resource type="Texture2D" uid="uid://dgehmdcy3xwst" path="res://Assets/Textures/ui/slider_button.png" id="6_6d2ee"]
+[ext_resource type="StyleBox" uid="uid://dlrnw2kh1yo0u" path="res://Assets/Resource/Themes/pixel/button_flat_line_reverse.tres" id="6_dabr2"]
+[ext_resource type="StyleBox" uid="uid://bcycwhf4bplbs" path="res://Assets/Resource/Themes/pixel/pixel_style_button_texture.tres" id="6_ucc3y"]
+[ext_resource type="StyleBox" uid="uid://drtnhbkwsujca" path="res://Assets/Resource/Themes/pixel/small_panel_texture.tres" id="7_dmytd"]
+[ext_resource type="FontFile" uid="uid://b3cn5mc2idort" path="res://Assets/Fonts/en/LockClock-Light.ttf" id="7_fpsg1"]
+[ext_resource type="FontFile" uid="uid://di5tw3r7ov1iy" path="res://Assets/Fonts/zh/LanaPixel.ttf" id="8_cf2lc"]
+[ext_resource type="StyleBox" uid="uid://c2lrwab7fasi5" path="res://Assets/Resource/Themes/pixel/small_panel_texture_reverse.tres" id="8_d65ee"]
+[ext_resource type="FontFile" uid="uid://dg4f5llh5gwo3" path="res://Assets/Fonts/zh/IPix中文像素字体.ttf" id="9_tc8bt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hxrm2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06duj"]
+bg_color = Color(0, 0, 0, 0.12549)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_lqebw"]
+color = Color(1, 1, 1, 1)
+grow_begin = 0.0
+grow_end = 0.0
+
+[sub_resource type="FontVariation" id="FontVariation_hj4a6"]
+fallbacks = Array[Font]([ExtResource("8_cf2lc"), ExtResource("9_tc8bt")])
+base_font = ExtResource("7_fpsg1")
+spacing_top = 1
+
+[resource]
+default_font = SubResource("FontVariation_hj4a6")
+default_font_size = 16
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0.5, 0.5, 0.5, 1)
+Button/colors/font_focus_color = Color(0, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.5, 0.5, 0.5, 1)
+Button/colors/font_hover_pressed_color = Color(0.5, 0.5, 0.5, 1)
+Button/colors/font_pressed_color = Color(1, 1, 1, 1)
+Button/styles/disabled = ExtResource("1_geydi")
+Button/styles/focus = SubResource("StyleBoxEmpty_hxrm2")
+Button/styles/hover = ExtResource("1_geydi")
+Button/styles/normal = ExtResource("1_geydi")
+Button/styles/pressed = ExtResource("2_d60ov")
+CheckButton/colors/font_color = Color(1, 1, 1, 1)
+CheckButton/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckButton/icons/checked = ExtResource("3_rlwr1")
+CheckButton/icons/unchecked = ExtResource("4_rthc1")
+FlatLineButton/base_type = &"Button"
+FlatLineButton/colors/font_disabled_color = Color(0, 0, 0, 0.25098)
+FlatLineButton/styles/disabled = SubResource("StyleBoxFlat_06duj")
+FlatLineButton/styles/hover = ExtResource("5_mxex3")
+FlatLineButton/styles/normal = ExtResource("5_mxex3")
+FlatLineButton/styles/pressed = ExtResource("6_dabr2")
+HSeparator/constants/separation = 1
+HSeparator/styles/separator = SubResource("StyleBoxLine_lqebw")
+HSlider/icons/grabber = ExtResource("6_6d2ee")
+HSlider/icons/grabber_disabled = ExtResource("6_6d2ee")
+HSlider/icons/grabber_highlight = ExtResource("6_6d2ee")
+HSlider/styles/grabber_area = ExtResource("7_dmytd")
+HSlider/styles/grabber_area_highlight = ExtResource("7_dmytd")
+HSlider/styles/slider = ExtResource("8_d65ee")
+OptionButton/colors/font_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_focus_color = Color(1, 1, 1, 1)
+OptionButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+OptionButton/styles/hover = ExtResource("2_d60ov")
+OptionButton/styles/normal = ExtResource("2_d60ov")
+OptionButton/styles/pressed = ExtResource("1_geydi")
+Panel/styles/panel = ExtResource("1_geydi")
+PanelContainer/styles/panel = ExtResource("1_geydi")
+PopupMenu/font_sizes/font_size = 32
+PopupMenu/styles/panel = ExtResource("2_d60ov")
+ReverseButton/base_type = &"Button"
+ReverseButton/colors/font_color = Color(1, 1, 1, 1)
+ReverseButton/colors/font_focus_color = Color(1, 1, 1, 1)
+ReverseButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+ReverseButton/styles/hover = ExtResource("2_d60ov")
+ReverseButton/styles/normal = ExtResource("2_d60ov")
+ReverseButton/styles/pressed = ExtResource("1_geydi")
+ReversePanel/base_type = &"Panel"
+ReversePanel/styles/panel = ExtResource("2_d60ov")
+ReversePanelContainer/base_type = &"PanelContainer"
+ReversePanelContainer/styles/panel = ExtResource("2_d60ov")
+RoundButton/base_type = &"Button"
+RoundButton/colors/font_color = Color(1, 1, 1, 1)
+RoundButton/colors/font_disabled_color = Color(0, 0, 0, 1)
+RoundButton/colors/font_focus_color = Color(1, 1, 1, 1)
+RoundButton/colors/font_pressed_color = Color(0, 0, 0, 1)
+RoundButton/font_sizes/font_size = 32
+RoundButton/styles/disabled = ExtResource("5_sylta")
+RoundButton/styles/hover = ExtResource("6_ucc3y")
+RoundButton/styles/normal = ExtResource("6_ucc3y")
+RoundButton/styles/pressed = ExtResource("5_sylta")
+SmallButton/base_type = &"Button"
+SmallButton/styles/disabled = ExtResource("7_dmytd")
+SmallButton/styles/hover = ExtResource("7_dmytd")
+SmallButton/styles/normal = ExtResource("7_dmytd")
+SmallButton/styles/pressed = ExtResource("8_d65ee")
+VScrollBar/styles/grabber = ExtResource("7_dmytd")
+VScrollBar/styles/grabber_highlight = ExtResource("7_dmytd")
+VScrollBar/styles/grabber_pressed = ExtResource("7_dmytd")
+VScrollBar/styles/scroll = ExtResource("8_d65ee")
+VSlider/icons/grabber = ExtResource("6_6d2ee")
+VSlider/icons/grabber_disabled = ExtResource("6_6d2ee")
+VSlider/icons/grabber_highlight = ExtResource("6_6d2ee")
+VSlider/styles/grabber_area = ExtResource("7_dmytd")
+VSlider/styles/grabber_area_highlight = ExtResource("7_dmytd")
+VSlider/styles/slider = ExtResource("8_d65ee")

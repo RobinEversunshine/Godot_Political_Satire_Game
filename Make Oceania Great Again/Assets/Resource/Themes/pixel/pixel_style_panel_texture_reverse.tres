@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://drde2dw1q03t3"]
+
+[ext_resource type="Texture2D" uid="uid://4c7bgibqguwb" path="res://Assets/Textures/ui/panel_reverse.png" id="1_rt676"]
+
+[resource]
+texture = ExtResource("1_rt676")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0

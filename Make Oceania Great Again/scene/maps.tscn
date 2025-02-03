@@ -1,0 +1,233 @@
+[gd_scene load_steps=14 format=3 uid="uid://cxp85fn88iryp"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_111ew"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_rxpb0"]
+[ext_resource type="Material" uid="uid://c7jieej3lgwy2" path="res://Assets/Resource/Shaders/pixel_material.tres" id="3_5plwm"]
+[ext_resource type="Script" path="res://scene/maps.gd" id="3_d0601"]
+[ext_resource type="Shader" path="res://Assets/Resource/Shaders/pixel.gdshader" id="4_4nt03"]
+[ext_resource type="Script" path="res://Main/Components/Missions/Trigger.gd" id="5_it237"]
+[ext_resource type="Texture2D" uid="uid://uywo5buxc0sn" path="res://Assets/Textures/photos/JSB.jpg" id="5_x1mcl"]
+[ext_resource type="Texture2D" uid="uid://b47pupil8y2ks" path="res://Assets/Textures/photos/FC.jpg" id="6_3x846"]
+[ext_resource type="Texture2D" uid="uid://ckxjsu6bee776" path="res://Assets/references/map.png" id="7_56rn0"]
+[ext_resource type="Material" uid="uid://brrv8ft31l0y4" path="res://Assets/Resource/Shaders/mouse_material.tres" id="8_jvgy4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o2aps"]
+shader = ExtResource("4_4nt03")
+shader_parameter/uniform_texture = true
+shader_parameter/use_height = false
+shader_parameter/pixel_size_uniform = 242
+shader_parameter/pixel_size = Vector2(240, 240)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_xecyk"]
+viewport_path = NodePath("MapInterface/SubViewport")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_onko3"]
+
+[node name="Maps" type="Control" node_paths=PackedStringArray("graph_edit", "map", "map_texture")]
+material = ExtResource("1_111ew")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_rxpb0")
+script = ExtResource("3_d0601")
+graph_edit = NodePath("MapInterface/GraphEdit")
+map = NodePath("MapInterface/SubViewport/Map")
+map_texture = NodePath("MapInterface/SubViewport/Map/Sprite2D3")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MapInterface" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TextureRect" type="TextureRect" parent="MapInterface"]
+material = SubResource("ShaderMaterial_o2aps")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_xecyk")
+expand_mode = 1
+stretch_mode = 2
+script = ExtResource("5_it237")
+
+[node name="SubViewport" type="SubViewport" parent="MapInterface"]
+own_world_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(320, 484)
+
+[node name="Map" type="Node2D" parent="MapInterface/SubViewport"]
+material = ExtResource("1_111ew")
+
+[node name="Sprite2D" type="Sprite2D" parent="MapInterface/SubViewport/Map"]
+visible = false
+use_parent_material = true
+position = Vector2(-15, 337)
+rotation = 2.35619
+scale = Vector2(0.315, 0.315)
+texture = ExtResource("5_x1mcl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="MapInterface/SubViewport/Map"]
+visible = false
+use_parent_material = true
+position = Vector2(300, 400)
+rotation = -2.5604
+scale = Vector2(0.265, 0.265)
+texture = ExtResource("6_3x846")
+
+[node name="Sprite2D3" type="Sprite2D" parent="MapInterface/SubViewport/Map"]
+use_parent_material = true
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_56rn0")
+
+[node name="GraphEdit" type="GraphEdit" parent="MapInterface"]
+material = ExtResource("8_jvgy4")
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 16.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_onko3")
+zoom_step = 2.4
+minimap_enabled = false
+show_menu = false
+
+[node name="GraphElement2" type="GraphElement" parent="MapInterface/GraphEdit"]
+visible = false
+material = ExtResource("8_jvgy4")
+layout_mode = 0
+offset_left = 230.0
+offset_top = -27.0
+offset_right = 351.0
+offset_bottom = 7.0
+position_offset = Vector2(230, -27)
+
+[node name="Label" type="Label" parent="MapInterface/GraphEdit/GraphElement2"]
+use_parent_material = true
+layout_mode = 2
+text = "Right Eye of Chopin"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[node name="Buttons" type="Control" parent="MapInterface"]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 152.0
+offset_bottom = 46.0
+mouse_filter = 2
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="MapInterface/Buttons"]
+copy_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="MapSize" type="Label" parent="MapInterface/Buttons/BackBufferCopy"]
+material = ExtResource("8_jvgy4")
+offset_top = 12.0
+offset_right = 42.0
+offset_bottom = 35.0
+size_flags_horizontal = 6
+theme = ExtResource("2_rxpb0")
+text = "100%"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MapInterface/Buttons"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_right = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="MinusButton" type="Button" parent="MapInterface/Buttons/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(33, 33)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "-"
+
+[node name="RestoreButton" type="Button" parent="MapInterface/Buttons/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(33, 33)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "R"
+
+[node name="PlusButton" type="Button" parent="MapInterface/Buttons/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(33, 33)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+text = "+"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+visible = false
+material = ExtResource("3_5plwm")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 857.0
+offset_top = 20.0
+offset_right = 1033.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("ViewportTexture_xecyk")
+stretch_mode = 2
+
+[connection signal="gui_input" from="MapInterface" to="." method="_on_map_interface_gui_input"]
+[connection signal="pressed" from="MapInterface/Buttons/HBoxContainer/MinusButton" to="." method="_on_minus_button_pressed"]
+[connection signal="pressed" from="MapInterface/Buttons/HBoxContainer/RestoreButton" to="." method="_on_restore_button_pressed"]
+[connection signal="pressed" from="MapInterface/Buttons/HBoxContainer/PlusButton" to="." method="_on_plus_button_pressed"]

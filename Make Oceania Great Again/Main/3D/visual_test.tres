@@ -1,0 +1,45 @@
+[gd_resource type="VisualShader" load_steps=4 format=3 uid="uid://6oqaoimjsnib"]
+
+[sub_resource type="VisualShaderNodeTexture" id="VisualShaderNodeTexture_3vnxc"]
+source = 6
+
+[sub_resource type="VisualShaderNodeInput" id="VisualShaderNodeInput_0xepo"]
+input_name = "screen_uv"
+
+[sub_resource type="VisualShaderNodeRemap" id="VisualShaderNodeRemap_jiosb"]
+default_input_values = [1, 0.0, 2, 10.0, 3, 0.0, 4, 1.0]
+
+[resource]
+code = "shader_type spatial;
+render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_lambert, specular_schlick_ggx;
+
+uniform sampler2D normal_roughness_tex_frg_2 : hint_normal_roughness_texture;
+
+
+
+void fragment() {
+// Input:3
+	vec2 n_out3p0 = SCREEN_UV;
+
+
+	vec4 n_out2p0;
+// Texture2D:2
+	{
+		vec3 _normal = texture(normal_roughness_tex_frg_2, n_out3p0).rgb;
+		n_out2p0 = vec4(_normal, 1.0);
+	}
+
+
+// Output:0
+	ALBEDO = vec3(n_out2p0.xyz);
+
+
+}
+"
+nodes/fragment/2/node = SubResource("VisualShaderNodeTexture_3vnxc")
+nodes/fragment/2/position = Vector2(-200, 200)
+nodes/fragment/3/node = SubResource("VisualShaderNodeInput_0xepo")
+nodes/fragment/3/position = Vector2(-640, 300)
+nodes/fragment/4/node = SubResource("VisualShaderNodeRemap_jiosb")
+nodes/fragment/4/position = Vector2(40, 300)
+nodes/fragment/connections = PackedInt32Array(2, 0, 4, 0, 3, 0, 2, 0, 2, 0, 0, 0)

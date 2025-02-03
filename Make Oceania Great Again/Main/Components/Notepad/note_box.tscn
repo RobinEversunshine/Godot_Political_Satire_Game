@@ -1,0 +1,81 @@
+[gd_scene load_steps=4 format=3 uid="uid://n1nfctpcpo24"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_bmm4b"]
+[ext_resource type="Script" path="res://Main/Components/Notepad/note_box.gd" id="2_5sibl"]
+[ext_resource type="Texture2D" uid="uid://bu3iufdd01ws0" path="res://Assets/Textures/ui/lock_black.png" id="3_kh6hw"]
+
+[node name="NoteBox" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("1_bmm4b")
+script = ExtResource("2_5sibl")
+
+[node name="NoteButton" type="Button" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="NoteName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Note 001"
+vertical_alignment = 1
+
+[node name="NoteHint" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "note hint"
+vertical_alignment = 1
+
+[node name="LockTexture" type="TextureRect" parent="MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_kh6hw")
+
+[connection signal="mouse_entered" from="NoteButton" to="." method="_on_note_button_mouse_entered"]
+[connection signal="mouse_exited" from="NoteButton" to="." method="_on_note_button_mouse_exited"]
+[connection signal="pressed" from="NoteButton" to="." method="_on_note_button_pressed"]

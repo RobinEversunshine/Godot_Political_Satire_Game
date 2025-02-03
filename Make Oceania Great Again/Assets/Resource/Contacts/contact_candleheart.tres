@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="Contact" load_steps=11 format=3 uid="uid://bwqrkh2dbqa3o"]
+
+[ext_resource type="Resource" uid="uid://dpcnvn7kav0t1" path="res://Assets/Dialogues/call_candleheart.dialogue" id="1_10xjo"]
+[ext_resource type="AudioStream" uid="uid://c042qq4jlwtkx" path="res://Assets/Sound/SFX/395561__soundsforhim__walking-in-a-forest-quickly.wav" id="1_wg4rc"]
+[ext_resource type="AudioStream" uid="uid://u28gmvj4fh2e" path="res://Assets/Sound/SFX/574564__trp__wind-winter-trees-gusty-cold-77mel-190120_1.wav" id="2_8t1np"]
+[ext_resource type="Texture2D" uid="uid://dmfcyq0pkblte" path="res://Assets/Textures/ContactProfiles/candleheart_profile_128.png" id="2_yxjhq"]
+[ext_resource type="Script" path="res://Main/Common/Resource/Contact.gd" id="3_6eobw"]
+[ext_resource type="AudioStream" uid="uid://bxwt23vlplci" path="res://Assets/Sound/SFX/445294__luzanne0__female-breathing-variation.wav" id="3_a5aj5"]
+[ext_resource type="Texture2D" uid="uid://jj4fp10vdw71" path="res://Assets/Textures/ContactProfiles/candleheart_profile_38.png" id="3_ebywu"]
+[ext_resource type="Script" path="res://Main/Common/Resource/Call.gd" id="5_ae31w"]
+[ext_resource type="Resource" uid="uid://dujls61guvb7k" path="res://Assets/Dialogues/candleheart1.dialogue" id="8_rtidm"]
+
+[sub_resource type="Resource" id="Resource_rrx4k"]
+script = ExtResource("5_ae31w")
+contact_name = ""
+dialogue_resource = ExtResource("8_rtidm")
+title = "history"
+call_time = {
+"day": 31,
+"hour": 0,
+"minute": 0,
+"month": 12,
+"year": 2083
+}
+call_state = ""
+talk_time = ""
+
+[resource]
+script = ExtResource("3_6eobw")
+id = &"Miss Candleheart"
+profile_photo_128 = ExtResource("2_yxjhq")
+profile_photo_38 = ExtResource("3_ebywu")
+phone_number = 4885
+call_dialogue_resource = ExtResource("1_10xjo")
+callable = true
+call_default_bg_sfx = Array[AudioStream]([ExtResource("1_wg4rc"), ExtResource("2_8t1np"), ExtResource("3_a5aj5")])
+history_call = SubResource("Resource_rrx4k")

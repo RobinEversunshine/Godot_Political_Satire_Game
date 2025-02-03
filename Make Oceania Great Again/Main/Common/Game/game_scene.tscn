@@ -1,0 +1,952 @@
+[gd_scene load_steps=104 format=3 uid="uid://vewpkqlrxphb"]
+
+[ext_resource type="Script" path="res://Main/Common/GUI/GUIViewManager.gd" id="2_w8ff2"]
+[ext_resource type="PackedScene" uid="uid://cengpdl1hbl6g" path="res://scene/home.tscn" id="3_lpnpx"]
+[ext_resource type="Script" path="res://Main/Common/GUI/GUIViewConfig.gd" id="4_1gl6x"]
+[ext_resource type="PackedScene" uid="uid://nntxyjjk0f05" path="res://scene/lock.tscn" id="5_im8ed"]
+[ext_resource type="PackedScene" uid="uid://0impxinhvi8y" path="res://scene/phone.tscn" id="6_ptahn"]
+[ext_resource type="PackedScene" uid="uid://bayhghll2pbor" path="res://scene/phone_call.tscn" id="7_3rwd2"]
+[ext_resource type="PackedScene" uid="uid://ttac71cuttem" path="res://scene/contacts.tscn" id="8_yfbwj"]
+[ext_resource type="PackedScene" uid="uid://cye16ingmrs4x" path="res://scene/chats.tscn" id="9_ac2f8"]
+[ext_resource type="PackedScene" uid="uid://bvanmer16opp1" path="res://scene/call_history.tscn" id="10_2a15r"]
+[ext_resource type="PackedScene" uid="uid://c52btoyc4md7y" path="res://scene/settings.tscn" id="11_4b8tk"]
+[ext_resource type="PackedScene" uid="uid://utpyfuxqqo2t" path="res://scene/photos.tscn" id="12_52ac6"]
+[ext_resource type="PackedScene" uid="uid://dip0fkp6jg1kn" path="res://scene/music.tscn" id="13_fgpnx"]
+[ext_resource type="PackedScene" uid="uid://cxp85fn88iryp" path="res://scene/maps.tscn" id="14_pf5oc"]
+[ext_resource type="PackedScene" uid="uid://epqi61pt1yts" path="res://scene/notepad.tscn" id="15_mwbxd"]
+[ext_resource type="PackedScene" uid="uid://b7o0ygc1n8yda" path="res://scene/missions.tscn" id="16_r2ljc"]
+[ext_resource type="PackedScene" uid="uid://dv5g5rpucq7p5" path="res://scene/news.tscn" id="17_mweuo"]
+[ext_resource type="PackedScene" uid="uid://deohwpkrbs0j" path="res://scene/calculator.tscn" id="18_fpn3v"]
+[ext_resource type="PackedScene" uid="uid://dhcbelcfbgokd" path="res://scene/hidden.tscn" id="19_konf6"]
+[ext_resource type="PackedScene" uid="uid://cjm1hfw3ipf60" path="res://scene/ai_search.tscn" id="20_3ndgb"]
+[ext_resource type="PackedScene" uid="uid://b7qg0le07vmjd" path="res://scene/calendar.tscn" id="20_bm5xt"]
+[ext_resource type="Script" path="res://Main/Common/Game/ContactList.gd" id="21_bmec5"]
+[ext_resource type="Resource" uid="uid://bwqrkh2dbqa3o" path="res://Assets/Resource/Contacts/contact_candleheart.tres" id="22_1cegp"]
+[ext_resource type="Resource" uid="uid://dmvoj1o8f1ri4" path="res://Assets/Resource/Contacts/contact_boss.tres" id="23_sr7qa"]
+[ext_resource type="Resource" uid="uid://dtglk36ibsgwe" path="res://Assets/Resource/Contacts/contact_mom.tres" id="24_qserx"]
+[ext_resource type="Resource" uid="uid://bkw46dnr5cbni" path="res://Assets/Resource/Contacts/contact_jerry.tres" id="27_pi7y4"]
+[ext_resource type="Resource" uid="uid://cb1abhyb2a5ax" path="res://Assets/Resource/Contacts/contact_1984.tres" id="27_w01v1"]
+[ext_resource type="Resource" uid="uid://mdg847pcpd52" path="res://Assets/Resource/Contacts/contact_napolean.tres" id="28_0en82"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="28_2378h"]
+[ext_resource type="Script" path="res://Main/Common/Game/ColorGradientList.gd" id="29_0re0b"]
+[ext_resource type="Gradient" uid="uid://dxrympyaopmnv" path="res://Assets/Resource/ColorGradients/shader_gradient.tres" id="30_0eg2v"]
+[ext_resource type="Script" path="res://Main/Components/Camera2D.gd" id="31_vgo8w"]
+[ext_resource type="Material" uid="uid://brrv8ft31l0y4" path="res://Assets/Resource/Shaders/mouse_material.tres" id="32_o3c2o"]
+[ext_resource type="Texture2D" uid="uid://bg0rqq33q0uin" path="res://Assets/Textures/mouse/mouse_16.png" id="33_76hyo"]
+[ext_resource type="Script" path="res://Main/Components/Mouse.gd" id="34_wl8hr"]
+[ext_resource type="Texture2D" uid="uid://kqwfr8u3evi0" path="res://Assets/Textures/bg/bg.png" id="35_aq2po"]
+[ext_resource type="Script" path="res://Main/Components/Shake.gd" id="36_uee7e"]
+[ext_resource type="Script" path="res://Main/Components/BaseMenu.gd" id="37_k1ldd"]
+[ext_resource type="Texture2D" uid="uid://c88tiqa7w0ofm" path="res://Assets/Textures/bg/phoneoutline.png" id="37_uw424"]
+[ext_resource type="Script" path="res://Main/Components/MorseColorRect.gd" id="38_ig75y"]
+[ext_resource type="Script" path="res://Main/Components/Settings/VolumeSlider.gd" id="38_qhyr7"]
+[ext_resource type="PackedScene" uid="uid://c4xcvylfale6f" path="res://scene/up_scroll.tscn" id="39_bcyam"]
+[ext_resource type="Texture2D" uid="uid://cug23ggurlcau" path="res://Assets/Textures/bg/hand.png" id="40_q7gby"]
+[ext_resource type="Shader" uid="uid://d0sjr6blomm4l" path="res://Assets/Resource/Shaders/black_white_visual_material.tres" id="41_kc0vd"]
+[ext_resource type="Texture2D" uid="uid://bxfnssh1vhlch" path="res://Assets/Textures/photos/laywer.png" id="42_uqlqs"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="43_p4r25"]
+[ext_resource type="Script" path="res://Main/Components/Settings/ColorSettings.gd" id="44_fcovi"]
+[ext_resource type="StyleBox" uid="uid://drde2dw1q03t3" path="res://Assets/Resource/Themes/pixel/pixel_style_panel_texture_reverse.tres" id="45_3od7i"]
+[ext_resource type="Script" path="res://Main/Components/Settings/LanguageOption.gd" id="46_t45q7"]
+
+[sub_resource type="Resource" id="Resource_1kw4g"]
+script = ExtResource("4_1gl6x")
+id = &"Home"
+prefab = ExtResource("3_lpnpx")
+
+[sub_resource type="Resource" id="Resource_ibi52"]
+script = ExtResource("4_1gl6x")
+id = &"Lock"
+prefab = ExtResource("5_im8ed")
+
+[sub_resource type="Resource" id="Resource_hhlim"]
+script = ExtResource("4_1gl6x")
+id = &"Phone"
+prefab = ExtResource("6_ptahn")
+
+[sub_resource type="Resource" id="Resource_72fhi"]
+script = ExtResource("4_1gl6x")
+id = &"PhoneCall"
+prefab = ExtResource("7_3rwd2")
+
+[sub_resource type="Resource" id="Resource_mhis4"]
+script = ExtResource("4_1gl6x")
+id = &"Contacts"
+prefab = ExtResource("8_yfbwj")
+
+[sub_resource type="Resource" id="Resource_ele4i"]
+script = ExtResource("4_1gl6x")
+id = &"Chats"
+prefab = ExtResource("9_ac2f8")
+
+[sub_resource type="Resource" id="Resource_lejh7"]
+script = ExtResource("4_1gl6x")
+id = &"CallHistory"
+prefab = ExtResource("10_2a15r")
+
+[sub_resource type="Resource" id="Resource_e6ykc"]
+script = ExtResource("4_1gl6x")
+id = &"Settings"
+prefab = ExtResource("11_4b8tk")
+
+[sub_resource type="Resource" id="Resource_7cqms"]
+script = ExtResource("4_1gl6x")
+id = &"Photos"
+prefab = ExtResource("12_52ac6")
+
+[sub_resource type="Resource" id="Resource_hdrk8"]
+script = ExtResource("4_1gl6x")
+id = &"Music"
+prefab = ExtResource("13_fgpnx")
+
+[sub_resource type="Resource" id="Resource_grmre"]
+script = ExtResource("4_1gl6x")
+id = &"Maps"
+prefab = ExtResource("14_pf5oc")
+
+[sub_resource type="Resource" id="Resource_ysowx"]
+script = ExtResource("4_1gl6x")
+id = &"Notepad"
+prefab = ExtResource("15_mwbxd")
+
+[sub_resource type="Resource" id="Resource_nsxbx"]
+script = ExtResource("4_1gl6x")
+id = &"Missions"
+prefab = ExtResource("16_r2ljc")
+
+[sub_resource type="Resource" id="Resource_smpoc"]
+script = ExtResource("4_1gl6x")
+id = &"News"
+prefab = ExtResource("17_mweuo")
+
+[sub_resource type="Resource" id="Resource_5y23y"]
+script = ExtResource("4_1gl6x")
+id = &"Calculator"
+prefab = ExtResource("18_fpn3v")
+
+[sub_resource type="Resource" id="Resource_lpd4i"]
+script = ExtResource("4_1gl6x")
+id = &"Hidden"
+prefab = ExtResource("19_konf6")
+
+[sub_resource type="Resource" id="Resource_uhtmy"]
+script = ExtResource("4_1gl6x")
+id = &"Calendar"
+prefab = ExtResource("20_bm5xt")
+
+[sub_resource type="Resource" id="Resource_1oty2"]
+script = ExtResource("4_1gl6x")
+id = &"AISearch"
+prefab = ExtResource("20_3ndgb")
+
+[sub_resource type="Gradient" id="Gradient_8griw"]
+interpolation_mode = 2
+colors = PackedColorArray(0.164706, 0.164706, 0.164706, 1, 0.843137, 0.843137, 0.843137, 1)
+
+[sub_resource type="Gradient" id="Gradient_xj1m1"]
+interpolation_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_5yjys"]
+interpolation_mode = 2
+colors = PackedColorArray(0.329412, 0, 0.141176, 1, 0.929412, 0.552941, 0.121569, 1)
+
+[sub_resource type="Gradient" id="Gradient_8spml"]
+interpolation_mode = 2
+colors = PackedColorArray(0.239216, 0.192157, 0.290196, 1, 0.572549, 0.862745, 0.898039, 1)
+
+[sub_resource type="Gradient" id="Gradient_6dsfb"]
+interpolation_mode = 2
+colors = PackedColorArray(0.6, 0.156863, 0.25098, 1, 0.870588, 0.764706, 0.745098, 1)
+
+[sub_resource type="Gradient" id="Gradient_autia"]
+interpolation_mode = 2
+colors = PackedColorArray(0.145098, 0.0392157, 0.2, 1, 0.513726, 0.376471, 0.568627, 1)
+
+[sub_resource type="Gradient" id="Gradient_5b3ki"]
+interpolation_mode = 2
+colors = PackedColorArray(0.109804, 0.34902, 0.337255, 1, 0.760784, 0.654902, 0.447059, 1)
+
+[sub_resource type="Gradient" id="Gradient_1agco"]
+interpolation_mode = 2
+colors = PackedColorArray(0.364706, 0.164706, 0.258824, 1, 0.984314, 0.388235, 0.462745, 1)
+
+[sub_resource type="Gradient" id="Gradient_5j4gf"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0.0470588, 0.14902, 1, 0.721569, 0.113725, 0.203922, 1)
+
+[sub_resource type="Gradient" id="Gradient_agnhj"]
+interpolation_mode = 2
+colors = PackedColorArray(0.301961, 0.152941, 0.0196078, 1, 0.721569, 0.533333, 0.317647, 1)
+
+[sub_resource type="Gradient" id="Gradient_04guj"]
+interpolation_mode = 2
+colors = PackedColorArray(0.411765, 0, 0.203922, 1, 0.447059, 0.537255, 0.721569, 1)
+
+[sub_resource type="Gradient" id="Gradient_l6sbe"]
+interpolation_mode = 2
+colors = PackedColorArray(0.0431373, 0.0745098, 0.101961, 1, 0.243137, 0.262745, 0.360784, 1)
+
+[sub_resource type="Gradient" id="Gradient_hlnw1"]
+interpolation_mode = 2
+colors = PackedColorArray(0.509804, 0.392157, 0.290196, 1, 1, 0.780392, 0.490196, 1)
+
+[sub_resource type="Environment" id="Environment_asxe8"]
+background_mode = 3
+glow_enabled = true
+glow_strength = 1.5
+glow_hdr_threshold = 0.9
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_dp4ph"]
+
+[sub_resource type="Animation" id="Animation_6yw8u"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(30, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_d7tgp"]
+resource_name = "show_phone"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Phone:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(630, -0.25, 0, 0.1, -0.5, 30, -1, 8.5, 0.25, 0),
+"times": PackedFloat32Array(0, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j1cis"]
+_data = {
+"RESET": SubResource("Animation_6yw8u"),
+"show_phone": SubResource("Animation_d7tgp")
+}
+
+[sub_resource type="GDScript" id="GDScript_xttpm"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	Game.get_color().random_color()
+
+
+func _on_backward_button_pressed():
+	Game.get_color().change_gradient(\"backward\")
+
+
+func _on_forward_button_pressed():
+	Game.get_color().change_gradient(\"forward\")
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r8baf"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.329412, 0, 0.141176, 1)
+shader_parameter/newColorWhite = Color(0.929412, 0.552941, 0.121569, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pvi00"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.109804, 0.211765, 0.0470588, 1)
+shader_parameter/newColorWhite = Color(0.74902, 0.760784, 0.054902, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yryvk"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.239216, 0.192157, 0.290196, 1)
+shader_parameter/newColorWhite = Color(0.572549, 0.862745, 0.898039, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_x2mxu"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.6, 0.156863, 0.25098, 1)
+shader_parameter/newColorWhite = Color(0.870588, 0.764706, 0.745098, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5abft"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.145098, 0.0392157, 0.2, 1)
+shader_parameter/newColorWhite = Color(0.513726, 0.376471, 0.568627, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qfg7x"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.109804, 0.34902, 0.337255, 1)
+shader_parameter/newColorWhite = Color(0.760784, 0.654902, 0.447059, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_guuxg"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.364706, 0.164706, 0.258824, 1)
+shader_parameter/newColorWhite = Color(0.984314, 0.388235, 0.462745, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fqkkn"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0, 0.0475, 0.15, 1)
+shader_parameter/newColorWhite = Color(0.72, 0.1152, 0.20592, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jsi2i"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.301961, 0.152941, 0.0196078, 1)
+shader_parameter/newColorWhite = Color(0.721569, 0.533333, 0.317647, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngm2a"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.411765, 0, 0.203922, 1)
+shader_parameter/newColorWhite = Color(0.447059, 0.537255, 0.721569, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nluik"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.0431373, 0.0745098, 0.101961, 1)
+shader_parameter/newColorWhite = Color(0.243137, 0.262745, 0.360784, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qbl7q"]
+shader = ExtResource("41_kc0vd")
+shader_parameter/newColorBlack = Color(0.509804, 0.392157, 0.290196, 1)
+shader_parameter/newColorWhite = Color(1, 0.780392, 0.490196, 1)
+shader_parameter/oldColorBlack = Color(0, 0, 0, 1)
+shader_parameter/oldColorWhite = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_re12h"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ec52e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_32xqy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_n0cgf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2pqrw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mt4o8"]
+
+[node name="GameScene" type="Node"]
+
+[node name="Components" type="Node" parent="."]
+
+[node name="GUIViewManager" type="Node" parent="Components" node_paths=PackedStringArray("guiRoot", "guiRoot_phone_call")]
+unique_name_in_owner = true
+script = ExtResource("2_w8ff2")
+ViewConfigList = Array[ExtResource("4_1gl6x")]([SubResource("Resource_1kw4g"), SubResource("Resource_ibi52"), SubResource("Resource_hhlim"), SubResource("Resource_72fhi"), SubResource("Resource_mhis4"), SubResource("Resource_ele4i"), SubResource("Resource_lejh7"), SubResource("Resource_e6ykc"), SubResource("Resource_7cqms"), SubResource("Resource_hdrk8"), SubResource("Resource_grmre"), SubResource("Resource_ysowx"), SubResource("Resource_nsxbx"), SubResource("Resource_smpoc"), SubResource("Resource_5y23y"), SubResource("Resource_lpd4i"), SubResource("Resource_uhtmy"), SubResource("Resource_1oty2")])
+guiRoot = NodePath("../../Phone/GuiRoot")
+guiRoot_phone_call = NodePath("../../Phone/GuiRootPhoneCall")
+
+[node name="ContactList" type="Node" parent="Components"]
+unique_name_in_owner = true
+script = ExtResource("21_bmec5")
+contactList = Array[Resource("res://Main/Common/Resource/Contact.gd")]([ExtResource("22_1cegp"), ExtResource("23_sr7qa"), ExtResource("24_qserx"), ExtResource("27_w01v1"), ExtResource("28_0en82"), ExtResource("27_pi7y4")])
+
+[node name="ColorGradientList" type="Control" parent="Components"]
+unique_name_in_owner = true
+material = ExtResource("28_2378h")
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("29_0re0b")
+color_gradient_list = Array[Gradient]([SubResource("Gradient_8griw"), SubResource("Gradient_xj1m1"), SubResource("Gradient_5yjys"), SubResource("Gradient_8spml"), SubResource("Gradient_6dsfb"), SubResource("Gradient_autia"), SubResource("Gradient_5b3ki"), SubResource("Gradient_1agco"), SubResource("Gradient_5j4gf"), SubResource("Gradient_agnhj"), SubResource("Gradient_04guj"), SubResource("Gradient_l6sbe"), SubResource("Gradient_hlnw1")])
+shader_gradient = ExtResource("30_0eg2v")
+metadata/_edit_use_anchors_ = true
+
+[node name="Camera2D" type="Camera2D" parent="Components"]
+unique_name_in_owner = true
+position = Vector2(533.3, 300)
+script = ExtResource("31_vgo8w")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="Components"]
+environment = SubResource("Environment_asxe8")
+camera_attributes = SubResource("CameraAttributesPractical_dp4ph")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Components"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_j1cis")
+}
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="Components"]
+z_index = 100
+copy_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Mouse" type="Sprite2D" parent="Components/BackBufferCopy"]
+material = ExtResource("32_o3c2o")
+texture = ExtResource("33_76hyo")
+offset = Vector2(8, 8)
+script = ExtResource("34_wl8hr")
+
+[node name="bg" type="Control" parent="."]
+material = ExtResource("28_2378h")
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -857.0
+offset_top = -40.0
+offset_right = 1965.0
+offset_bottom = 665.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="TextureRect" type="TextureRect" parent="bg"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 22.0
+offset_top = 12.0
+offset_right = 1046.0
+offset_bottom = 588.0
+texture = ExtResource("35_aq2po")
+expand_mode = 1
+stretch_mode = 6
+metadata/_edit_lock_ = true
+
+[node name="BaseMenu" type="Control" parent="."]
+material = ExtResource("28_2378h")
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+theme = ExtResource("43_p4r25")
+script = ExtResource("37_k1ldd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BaseMenu"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 896.0
+offset_top = 391.0
+offset_right = 975.0
+offset_bottom = 523.0
+theme_override_constants/separation = 0
+
+[node name="NewGameButton" type="Button" parent="BaseMenu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+text = "New Game"
+flat = true
+
+[node name="ContinueButton" type="Button" parent="BaseMenu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+disabled = true
+text = "Continue"
+flat = true
+
+[node name="SettingsButton" type="Button" parent="BaseMenu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+theme_override_colors/font_pressed_color = Color(0.270588, 0.270588, 0.270588, 1)
+toggle_mode = true
+text = "Settings"
+flat = true
+
+[node name="QuitButton" type="Button" parent="BaseMenu/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+text = "Quit"
+flat = true
+
+[node name="GameTitle" type="Label" parent="BaseMenu"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 684.0
+offset_top = 347.0
+offset_right = 984.0
+offset_bottom = 381.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_font_sizes/font_size = 32
+text = "Make Oceania Great Again"
+
+[node name="Settings" type="VBoxContainer" parent="BaseMenu"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 725.0
+offset_top = 405.0
+offset_right = 891.0
+offset_bottom = 552.0
+
+[node name="MasterVolume" type="PanelContainer" parent="BaseMenu/Settings"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("45_3od7i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseMenu/Settings/MasterVolume"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BaseMenu/Settings/MasterVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Master Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="BaseMenu/Settings/MasterVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("38_qhyr7")
+bus_name = "Master"
+
+[node name="SoundVolume" type="PanelContainer" parent="BaseMenu/Settings"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("45_3od7i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseMenu/Settings/SoundVolume"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BaseMenu/Settings/SoundVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Sound Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="BaseMenu/Settings/SoundVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("38_qhyr7")
+bus_name = "SFX"
+
+[node name="MusicVolume" type="PanelContainer" parent="BaseMenu/Settings"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_styles/panel = ExtResource("45_3od7i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseMenu/Settings/MusicVolume"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="BaseMenu/Settings/MusicVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="BaseMenu/Settings/MusicVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("38_qhyr7")
+bus_name = "Music"
+
+[node name="RandomColorButton" type="Button" parent="BaseMenu/Settings"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Random Palette"
+script = SubResource("GDScript_xttpm")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BaseMenu/Settings/RandomColorButton"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackwardButton" type="Button" parent="BaseMenu/Settings/RandomColorButton/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_type_variation = &"ReverseButton"
+text = "《"
+flat = true
+
+[node name="ForwardButton" type="Button" parent="BaseMenu/Settings/RandomColorButton/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_type_variation = &"ReverseButton"
+text = "》
+"
+flat = true
+
+[node name="Phone" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("28_2378h")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 380.0
+offset_top = 30.0
+offset_right = 684.0
+offset_bottom = 570.0
+mouse_filter = 2
+script = ExtResource("36_uee7e")
+
+[node name="Phoneoutline" type="TextureRect" parent="Phone"]
+use_parent_material = true
+layout_mode = 0
+offset_left = -12.0
+offset_top = -19.0
+offset_right = 316.0
+offset_bottom = 558.0
+mouse_filter = 2
+texture = ExtResource("37_uw424")
+metadata/_edit_lock_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Phone/Phoneoutline"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 12.0
+offset_top = 19.0
+offset_right = 316.0
+offset_bottom = 559.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
+
+[node name="MorseColorRect" type="ColorRect" parent="Phone/Phoneoutline"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 8.0
+offset_right = 175.0
+offset_bottom = 10.0
+color = Color(0.2, 1, 0, 1)
+script = ExtResource("38_ig75y")
+metadata/_edit_lock_ = true
+
+[node name="GuiRoot" type="Control" parent="Phone"]
+clip_contents = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="UpScroll" parent="Phone" instance=ExtResource("39_bcyam")]
+unique_name_in_owner = true
+metadata/_edit_lock_ = true
+
+[node name="GuiRootPhoneCall" type="Control" parent="Phone"]
+clip_contents = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Hand" type="TextureRect" parent="Phone"]
+material = ExtResource("28_2378h")
+layout_mode = 0
+offset_left = -312.0
+offset_top = -44.0
+offset_right = 388.0
+offset_bottom = 656.0
+mouse_filter = 2
+texture = ExtResource("40_q7gby")
+metadata/_edit_lock_ = true
+
+[node name="test" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+
+[node name="GridContainer" type="GridContainer" parent="test"]
+layout_mode = 0
+offset_left = -2151.0
+offset_top = 49.0
+offset_right = -615.0
+offset_bottom = 1257.0
+columns = 4
+
+[node name="231218" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_r8baf")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231220" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_pvi00")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231221" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_yryvk")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231222" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_x2mxu")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231223" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_5abft")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231224" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_qfg7x")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231225" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_guuxg")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231226" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_fqkkn")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231227" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_jsi2i")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231228" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_ngm2a")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231229" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_nluik")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231230" type="TextureRect" parent="test/GridContainer"]
+material = SubResource("ShaderMaterial_qbl7q")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="231231" type="TextureRect" parent="test/GridContainer"]
+material = ExtResource("28_2378h")
+layout_mode = 2
+texture = ExtResource("42_uqlqs")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="test"]
+material = ExtResource("28_2378h")
+layout_mode = 0
+offset_left = 255.0
+offset_top = 137.0
+offset_right = 368.0
+offset_bottom = 294.0
+theme = ExtResource("43_p4r25")
+bbcode_enabled = true
+text = "White
+[color=crimson]crimson
+[color=webgreen]webgreen
+[color=yellow]yellow
+[color=CORNFLOWER_BLUE]CORNFLOWER_BLUE
+[color=blue]blue
+[color=aqua]aqua
+[color=cyan]cyan
+[color=SLATE_GRAY]SLATE_GRAY
+[color=DIM_GRAY]DIM_GRAY
+[color=WEB_GRAY]WEB_GRAY[/color]
+aaaaaa"
+fit_content = true
+scroll_active = false
+
+[node name="ColorSettings" type="Control" parent="test"]
+material = ExtResource("28_2378h")
+custom_minimum_size = Vector2(0, 153)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 705.0
+offset_top = 238.0
+offset_right = 873.0
+offset_bottom = 410.0
+mouse_filter = 2
+theme = ExtResource("43_p4r25")
+script = ExtResource("44_fcovi")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="test/ColorSettings"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="HSeparator" type="HSeparator" parent="test/ColorSettings/VBoxContainer"]
+visible = false
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="test/ColorSettings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="test/ColorSettings/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_type_variation = &"ReverseButton"
+text = "《"
+
+[node name="PaletteName" type="Label" parent="test/ColorSettings/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Current Palette"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ForwardButton" type="Button" parent="test/ColorSettings/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_type_variation = &"ReverseButton"
+text = "》
+"
+
+[node name="WhiteColor" type="PanelContainer" parent="test/ColorSettings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("45_3od7i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="test/ColorSettings/VBoxContainer/WhiteColor"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="test/ColorSettings/VBoxContainer/WhiteColor/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "White Color"
+vertical_alignment = 1
+
+[node name="ColorPickerWhite" type="ColorPickerButton" parent="test/ColorSettings/VBoxContainer/WhiteColor/HBoxContainer"]
+custom_minimum_size = Vector2(18, 0)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_re12h")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ec52e")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_32xqy")
+color = Color(0.843137, 0.843137, 0.843137, 1)
+
+[node name="BlackColor" type="PanelContainer" parent="test/ColorSettings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_styles/panel = ExtResource("45_3od7i")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="test/ColorSettings/VBoxContainer/BlackColor"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="test/ColorSettings/VBoxContainer/BlackColor/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Black Color"
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="test/ColorSettings/VBoxContainer/BlackColor/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="test/ColorSettings/VBoxContainer/BlackColor/HBoxContainer/CenterContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ColorPickerBlack" type="ColorPickerButton" parent="test/ColorSettings/VBoxContainer/BlackColor/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_n0cgf")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_2pqrw")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_mt4o8")
+color = Color(0.164706, 0.164706, 0.164706, 1)
+
+[node name="RandomColorButton" type="Button" parent="test/ColorSettings/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_type_variation = &"ReverseButton"
+text = "Random Color"
+metadata/_edit_lock_ = true
+
+[node name="OptionButton" type="OptionButton" parent="test"]
+material = ExtResource("28_2378h")
+layout_mode = 0
+offset_left = 740.0
+offset_top = 158.0
+offset_right = 810.0
+offset_bottom = 191.0
+theme = ExtResource("43_p4r25")
+item_count = 2
+allow_reselect = true
+popup/item_0/text = "en"
+popup/item_0/id = 0
+popup/item_1/text = "zh"
+popup/item_1/id = 1
+script = ExtResource("46_t45q7")
+
+[connection signal="pressed" from="BaseMenu/VBoxContainer/NewGameButton" to="BaseMenu" method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="BaseMenu/VBoxContainer/ContinueButton" to="BaseMenu" method="_on_continue_button_pressed"]
+[connection signal="toggled" from="BaseMenu/VBoxContainer/SettingsButton" to="BaseMenu" method="_on_settings_button_toggled"]
+[connection signal="pressed" from="BaseMenu/VBoxContainer/QuitButton" to="BaseMenu" method="_on_quit_button_pressed"]
+[connection signal="pressed" from="BaseMenu/Settings/RandomColorButton" to="BaseMenu/Settings/RandomColorButton" method="_on_pressed"]
+[connection signal="pressed" from="BaseMenu/Settings/RandomColorButton/HBoxContainer/BackwardButton" to="BaseMenu/Settings/RandomColorButton" method="_on_backward_button_pressed"]
+[connection signal="pressed" from="BaseMenu/Settings/RandomColorButton/HBoxContainer/ForwardButton" to="BaseMenu/Settings/RandomColorButton" method="_on_forward_button_pressed"]
+[connection signal="pressed" from="test/ColorSettings/VBoxContainer/HBoxContainer/BackwardButton" to="test/ColorSettings" method="_on_backward_button_pressed"]
+[connection signal="pressed" from="test/ColorSettings/VBoxContainer/HBoxContainer/ForwardButton" to="test/ColorSettings" method="_on_forward_button_pressed"]
+[connection signal="color_changed" from="test/ColorSettings/VBoxContainer/WhiteColor/HBoxContainer/ColorPickerWhite" to="test/ColorSettings" method="_on_color_picker_white_color_changed"]
+[connection signal="color_changed" from="test/ColorSettings/VBoxContainer/BlackColor/HBoxContainer/CenterContainer/ColorPickerBlack" to="test/ColorSettings" method="_on_color_picker_black_color_changed"]
+[connection signal="pressed" from="test/ColorSettings/VBoxContainer/RandomColorButton" to="test/ColorSettings" method="_on_random_color_button_pressed"]
+[connection signal="item_selected" from="test/OptionButton" to="test/OptionButton" method="_on_item_selected"]

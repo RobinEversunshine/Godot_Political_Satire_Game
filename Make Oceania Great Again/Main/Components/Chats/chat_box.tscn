@@ -1,0 +1,135 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxrty3vhjy1qd"]
+
+[ext_resource type="Script" path="res://Main/Components/Chats/ChatBox.gd" id="1_g3rpa"]
+[ext_resource type="Resource" uid="uid://bwqrkh2dbqa3o" path="res://Assets/Resource/Contacts/contact_candleheart.tres" id="2_ahkmm"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_gffga"]
+[ext_resource type="Texture2D" uid="uid://cim2jxa2gvuwp" path="res://Assets/Textures/ContactProfiles/default_profile_38.png" id="4_4eyif"]
+
+[sub_resource type="Gradient" id="Gradient_oueyo"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.593458, 0.771028)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_342vq"]
+gradient = SubResource("Gradient_oueyo")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="ChatBox" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 52)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 52.0
+mouse_filter = 2
+theme = ExtResource("2_gffga")
+script = ExtResource("1_g3rpa")
+contact = ExtResource("2_ahkmm")
+
+[node name="ContacterButton" type="Button" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ContactTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("4_4eyif")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="ContactName" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Contact Name"
+vertical_alignment = 1
+
+[node name="LastMessage" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+vertical_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 1
+
+[node name="NotiNumber" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 37.0
+offset_right = 53.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="NotiNumber"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_342vq")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_lock_ = true
+
+[node name="Number" type="Label" parent="NotiNumber"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "•"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_lock_ = true
+
+[connection signal="mouse_entered" from="ContacterButton" to="." method="_on_contacter_button_mouse_entered"]
+[connection signal="mouse_exited" from="ContacterButton" to="." method="_on_contacter_button_mouse_exited"]
+[connection signal="pressed" from="ContacterButton" to="." method="_on_contacter_button_pressed"]

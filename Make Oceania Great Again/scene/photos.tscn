@@ -1,0 +1,761 @@
+[gd_scene load_steps=25 format=3 uid="uid://utpyfuxqqo2t"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_f6giv"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_wb5xo"]
+[ext_resource type="Script" path="res://scene/photos.gd" id="3_20m3o"]
+[ext_resource type="PackedScene" uid="uid://dhjiw0rffilwr" path="res://Main/Components/Photos/album_button.tscn" id="4_rm4d3"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="7_355ax"]
+[ext_resource type="Texture2D" uid="uid://l85pwwolqd6u" path="res://Assets/Textures/photos/law.jpg" id="8_1372q"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_u5j3p"]
+[ext_resource type="Texture2D" uid="uid://wjcq3hbevuaa" path="res://Assets/Textures/photos/door.png" id="9_2lno0"]
+[ext_resource type="Texture2D" uid="uid://dut5nhdag7by" path="res://Assets/Textures/button/back.png" id="9_k331o"]
+[ext_resource type="Texture2D" uid="uid://bxfnssh1vhlch" path="res://Assets/Textures/photos/laywer.png" id="9_lafdm"]
+[ext_resource type="Texture2D" uid="uid://fuovqboqq22x" path="res://Assets/Textures/button/inform.png" id="10_gdmsc"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabel.gd" id="12_36174"]
+[ext_resource type="Texture2D" uid="uid://ba6k706qhmkn8" path="res://Assets/Textures/photos/broken_304.png" id="12_f7qdh"]
+[ext_resource type="Script" path="res://Main/Components/Photos/PhotosPage.gd" id="12_qtu1u"]
+[ext_resource type="Script" path="res://Main/Components/Missions/Trigger.gd" id="13_grn4t"]
+[ext_resource type="Script" path="res://Main/Components/Photos/Photo.gd" id="14_1whfu"]
+[ext_resource type="PackedScene" uid="uid://e2xpynkgr2ch" path="res://Main/Components/Notepad/password_page.tscn" id="15_1k13r"]
+
+[sub_resource type="Resource" id="Resource_av0hf"]
+script = ExtResource("8_u5j3p")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_043o7"]
+script = ExtResource("8_u5j3p")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Animation" id="Animation_nur3y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlbumsPage:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhotoSelectPage:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AlbumsPage:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PhotosPage:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(608, 20)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PhotoSelectPage:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PhotosPage/Inform:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 520)]
+}
+
+[sub_resource type="Animation" id="Animation_my10d"]
+resource_name = "into_album"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlbumsPage:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhotoSelectPage:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AlbumsPage:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PhotosPage:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(608, 20), Vector2(304, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_gam6j"]
+resource_name = "into_photo"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AlbumsPage:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-152, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PhotoSelectPage:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PhotosPage:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PhotoSelectPage:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3h8sp"]
+resource_name = "show_inform"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PhotosPage/Inform:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 520), Vector2(0, 340)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_psqo5"]
+_data = {
+"RESET": SubResource("Animation_nur3y"),
+"into_album": SubResource("Animation_my10d"),
+"into_photo": SubResource("Animation_gam6j"),
+"show_inform": SubResource("Animation_3h8sp")
+}
+
+[node name="Photos" type="Control"]
+material = ExtResource("1_f6giv")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_wb5xo")
+script = ExtResource("3_20m3o")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="AlbumsPage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 500.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AlbumsPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AlbumsPage/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="AlbumsPage/ScrollContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Label" type="Label" parent="AlbumsPage/ScrollContainer/VBoxContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "My Albums"
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="AlbumsPage/ScrollContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="GridContainer" type="GridContainer" parent="AlbumsPage/ScrollContainer/VBoxContainer/CenterContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+columns = 2
+
+[node name="AlbumButton" parent="AlbumsPage/ScrollContainer/VBoxContainer/CenterContainer/GridContainer" node_paths=PackedStringArray("photo_container") instance=ExtResource("4_rm4d3")]
+layout_mode = 2
+album_texture = ExtResource("8_1372q")
+album_name = "Favorites"
+photo_container = NodePath("../../../../../../PhotosPage/PhotoScroll/HBoxContainer")
+
+[node name="AlbumButton2" parent="AlbumsPage/ScrollContainer/VBoxContainer/CenterContainer/GridContainer" node_paths=PackedStringArray("photo_container") instance=ExtResource("4_rm4d3")]
+layout_mode = 2
+album_name = "Secret Album"
+locked = true
+password = "0229"
+password_hint = "Hint: Her Birthday"
+photo_container = NodePath("../../../../../../PhotosPage/PhotoScroll/HBoxContainer2")
+first_click_method = "found_locked_album"
+unlocked_method = "unlock_locked_album"
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 304.0
+offset_right = 304.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="PhotoSelectPage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 500.0
+
+[node name="ColorRect" type="ColorRect" parent="PhotoSelectPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="header" type="Control" parent="PhotoSelectPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PhotoSelectPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="PhotoSelectPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="PhotoSelectPage/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Album Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="PhotoSelectPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="PhotoSelectPage/header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("9_k331o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PhotoSelectPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -200.0
+offset_right = 0.000183105
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("7_355ax")
+wheel_scroll_damper = SubResource("Resource_av0hf")
+dragging_scroll_damper = SubResource("Resource_043o7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PhotoSelectPage/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="PhotoSelectPage/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 3
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 608.0
+offset_right = 608.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="PhotosPage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 608.0
+offset_top = 20.0
+offset_right = 912.0
+offset_bottom = 500.0
+mouse_filter = 2
+script = ExtResource("12_qtu1u")
+
+[node name="ColorRect" type="ColorRect" parent="PhotosPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="header" type="Control" parent="PhotosPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="PhotosPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="PhotosPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PhotoNameLabel" type="Label" parent="PhotosPage/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Photo Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("12_36174")
+
+[node name="CenterContainer2" type="CenterContainer" parent="PhotosPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="PhotosPage/header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("9_k331o")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CenterContainer3" type="CenterContainer" parent="PhotosPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="InformButton" type="TextureButton" parent="PhotosPage/header/CenterContainer3"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("10_gdmsc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="PhotoScroll" type="ScrollContainer" parent="PhotosPage"]
+use_parent_material = true
+clip_contents = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PhotosPage/PhotoScroll"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 400)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+
+[node name="Photo" type="TextureButton" parent="PhotosPage/PhotoScroll/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("8_1372q")
+stretch_mode = 3
+script = ExtResource("14_1whfu")
+photo_name = "IMG_830617.jpg"
+taken_time = {
+"day": 17,
+"month": 6,
+"year": 2083
+}
+location = "In the library"
+people = "[mission=TLN]Me and Miss Candleheart"
+description = "[mission=TO]Lawbook, lawbook, lawbook..."
+
+[node name="Trigger" type="Control" parent="PhotosPage/PhotoScroll/HBoxContainer/Photo"]
+anchors_preset = 0
+offset_left = 80.0
+offset_top = 93.0
+offset_right = 194.0
+offset_bottom = 159.0
+mouse_filter = 1
+script = ExtResource("13_grn4t")
+mission_name = "TO"
+
+[node name="Photo2" type="TextureButton" parent="PhotosPage/PhotoScroll/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("12_f7qdh")
+stretch_mode = 3
+script = ExtResource("14_1whfu")
+photo_name = "IMG_830615.jpg"
+duplicate_amount = 5
+
+[node name="Photo3" type="TextureButton" parent="PhotosPage/PhotoScroll/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("9_2lno0")
+stretch_mode = 3
+script = ExtResource("14_1whfu")
+photo_name = "IMG_830616.jpg"
+taken_time = {
+"day": 16,
+"month": 6,
+"year": 2083
+}
+description = "Frontdoor"
+
+[node name="Photo4" type="TextureButton" parent="PhotosPage/PhotoScroll/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("12_f7qdh")
+stretch_mode = 3
+script = ExtResource("14_1whfu")
+photo_name = "IMG_830615.jpg"
+duplicate_amount = 10
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PhotosPage/PhotoScroll"]
+visible = false
+use_parent_material = true
+custom_minimum_size = Vector2(304, 400)
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_constants/separation = 20
+
+[node name="Photo" type="TextureButton" parent="PhotosPage/PhotoScroll/HBoxContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("9_lafdm")
+stretch_mode = 3
+script = ExtResource("14_1whfu")
+photo_name = "[mission=FMN]IMG_call3221.jpg"
+taken_time = {
+"day": 15,
+"month": 2,
+"year": 2077
+}
+location = "The Court"
+people = "[mission=ISA]Me, Miss Candleheart and Jerry Smith"
+description = "My love's first defend"
+
+[node name="Inform" type="Control" parent="PhotosPage"]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 520.0
+offset_right = 304.0
+offset_bottom = 660.0
+
+[node name="PanelContainer" type="PanelContainer" parent="PhotosPage/Inform"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_right = -5.0
+offset_bottom = 0.000244141
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PhotosPage/Inform/PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="When" type="Label" parent="PhotosPage/Inform/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "10-23-2077"
+vertical_alignment = 1
+script = ExtResource("12_36174")
+
+[node name="Where" type="Label" parent="PhotosPage/Inform/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "At seaside"
+vertical_alignment = 1
+script = ExtResource("12_36174")
+
+[node name="Who" type="Label" parent="PhotosPage/Inform/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Me and Dad"
+vertical_alignment = 1
+script = ExtResource("12_36174")
+
+[node name="What" type="Label" parent="PhotosPage/Inform/PanelContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(278, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "it's Dad's favorite musician!
+I love him!"
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("12_36174")
+
+[node name="PasswordPage" parent="." instance=ExtResource("15_1k13r")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_psqo5")
+}
+
+[connection signal="pressed" from="PhotoSelectPage/header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PhotosPage/header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="PhotosPage/header/CenterContainer3/InformButton" to="." method="_on_inform_button_pressed"]
+[connection signal="gui_input" from="PhotosPage/PhotoScroll" to="PhotosPage" method="_on_photo_scroll_gui_input"]

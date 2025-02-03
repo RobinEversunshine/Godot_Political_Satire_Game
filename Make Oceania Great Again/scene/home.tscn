@@ -1,0 +1,1126 @@
+[gd_scene load_steps=95 format=3 uid="uid://cengpdl1hbl6g"]
+
+[ext_resource type="Script" path="res://scene/home.gd" id="2_d4dx8"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_k3tin"]
+[ext_resource type="PackedScene" uid="uid://dwg1rnsytk3lg" path="res://Main/Components/Home/application.tscn" id="4_pmpe4"]
+[ext_resource type="Texture2D" uid="uid://bo5tbk6oo07qk" path="res://Assets/Textures/apps/apps3.png" id="5_424yk"]
+[ext_resource type="Texture2D" uid="uid://w1rd10vixsm7" path="res://Assets/Textures/apps/apps6.png" id="6_0pb7a"]
+[ext_resource type="Texture2D" uid="uid://fmjjem4maaj1" path="res://Assets/Textures/apps/apps9.png" id="6_r70oj"]
+[ext_resource type="Script" path="res://Main/Components/Home/Clock.gd" id="7_0ksyf"]
+[ext_resource type="Texture2D" uid="uid://bg72fdtbcomvw" path="res://Assets/Textures/apps/apps5.png" id="7_8k14o"]
+[ext_resource type="Texture2D" uid="uid://diesrjbvbou7s" path="res://Assets/Textures/apps/apps8.png" id="8_f05wn"]
+[ext_resource type="Texture2D" uid="uid://b044u3icxvktr" path="res://Assets/Textures/apps/clock2.png" id="8_khjla"]
+[ext_resource type="Texture2D" uid="uid://bbthg220bvgyv" path="res://Assets/Textures/apps/clock_minute.png" id="9_mr61r"]
+[ext_resource type="Texture2D" uid="uid://cm0bb6x8f05w3" path="res://Assets/Textures/ui/point2.png" id="10_axht0"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="10_hfro8"]
+[ext_resource type="Texture2D" uid="uid://dg0ibirf1mbh" path="res://Assets/Textures/apps/clock_hour.png" id="10_tf6gf"]
+[ext_resource type="Texture2D" uid="uid://bo5afx7dwx2a8" path="res://Assets/Textures/ui/point4.png" id="11_0rr40"]
+[ext_resource type="Texture2D" uid="uid://dc0whrpa4g7d4" path="res://Assets/Textures/apps/apps13.png" id="11_5w4s6"]
+[ext_resource type="Texture2D" uid="uid://bpflu14alvir" path="res://Assets/Textures/apps/apps2.png" id="11_6jxcy"]
+[ext_resource type="Texture2D" uid="uid://blnbe0rkyryrb" path="res://Assets/Textures/apps/apps11.png" id="12_wa2jy"]
+[ext_resource type="Texture2D" uid="uid://ceqbtt8k3vpkl" path="res://Assets/Textures/apps/apps4.png" id="13_l5rq5"]
+[ext_resource type="Texture2D" uid="uid://qxi765dvdt5e" path="res://Assets/Textures/apps/apps15.png" id="13_xln2r"]
+[ext_resource type="Texture2D" uid="uid://dm6fwk73djse3" path="res://Assets/Textures/apps/apps7.png" id="14_vxq8f"]
+[ext_resource type="Texture2D" uid="uid://ch2jkxyimcb1l" path="res://Assets/Textures/apps/apps12.png" id="16_pcyed"]
+[ext_resource type="Script" path="res://Main/Components/Home/CalendarApp.gd" id="16_v7eyf"]
+[ext_resource type="Texture2D" uid="uid://b87b3jf8fkn8w" path="res://Assets/Textures/apps/apps14.png" id="17_nxta4"]
+[ext_resource type="Texture2D" uid="uid://wjcq3hbevuaa" path="res://Assets/Textures/photos/door.png" id="19_cov5o"]
+[ext_resource type="Script" path="res://Main/Components/Home/PagePoints.gd" id="19_u0p2e"]
+[ext_resource type="Shader" uid="uid://d1qdu5fsvck4d" path="res://Assets/Resource/Shaders/glitch_shader2.tres" id="20_7ostc"]
+[ext_resource type="Texture2D" uid="uid://dtsfnm8cpkss8" path="res://Assets/Textures/ui/large_panel.png" id="24_q74wr"]
+[ext_resource type="Texture2D" uid="uid://btuhm3ndyb2ii" path="res://Assets/Textures/apps/apps1.png" id="27_iuonk"]
+[ext_resource type="FontFile" uid="uid://dg4f5llh5gwo3" path="res://Assets/Fonts/zh/IPix中文像素字体.ttf" id="31_rv41i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqbot"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwi0x"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4y6rp"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5upvr"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1loy2"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esad8"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgjd4"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0thq2"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70tol"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_74561"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ajile"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yc0j"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wmrtf"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pmrq2"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5u6p"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ag7rr"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vrxns"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7esu"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qfo1"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaoyd"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n571x"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5kuh"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmddk"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jnku"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x5dqx"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1yy6k"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l8yns"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wrtx"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dqeq"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c03qp"]
+atlas = ExtResource("9_mr61r")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bbcnt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqbot")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwi0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4y6rp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5upvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1loy2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esad8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgjd4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0thq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70tol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_74561")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ajile")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yc0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wmrtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pmrq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5u6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ag7rr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vrxns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w7esu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qfo1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaoyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n571x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5kuh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmddk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jnku")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x5dqx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1yy6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l8yns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wrtx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dqeq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c03qp")
+}],
+"loop": true,
+"name": &"minute",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cqmdq"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dr3io"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nh4gc"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cuop"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omghi"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcf4v"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4k8qa"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7vn0"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45i8w"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bs5pr"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oaenq"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1vlj6"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t45k7"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c322x"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7ax4h"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnkse"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsunc"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_djs1y"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7osmi"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 240, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iwkq"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgffu"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgooi"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrv77"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 160, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khh2k"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g6ryu"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0mw43"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5l6t"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(0, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5s5o"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iog6k"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jtm2m"]
+atlas = ExtResource("10_tf6gf")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_leshw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cqmdq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dr3io")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nh4gc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cuop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omghi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcf4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4k8qa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7vn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45i8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bs5pr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oaenq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1vlj6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t45k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c322x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7ax4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnkse")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsunc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_djs1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7osmi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iwkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgffu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgooi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrv77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khh2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g6ryu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0mw43")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5l6t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5s5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iog6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jtm2m")
+}],
+"loop": true,
+"name": &"hour",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_uyoka"]
+script/source = "extends Button
+
+
+func _on_pressed():
+	disabled = true
+	SoundPlayer.play_sound(SoundPlayer.Chicken)
+	await get_tree().create_timer(5).timeout
+	SoundPlayer.stop_sound(SoundPlayer.Chicken)
+	disabled = false
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0fjtl"]
+shader = ExtResource("20_7ostc")
+shader_parameter/shake_power = 0.03
+shader_parameter/shake_rate = 0.5
+shader_parameter/shake_speed = 5.0
+shader_parameter/shake_block_size = 30.5
+shader_parameter/shake_color_rate = 0.01
+
+[node name="Screen" type="Control"]
+material = ExtResource("10_hfro8")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_k3tin")
+script = ExtResource("2_d4dx8")
+
+[node name="bg" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="bg"]
+modulate = Color(1, 1, 1, 0.501961)
+use_parent_material = true
+position = Vector2(90, -8)
+amount = 30
+lifetime = 8.0
+texture = ExtResource("10_axht0")
+emission_shape = 3
+emission_rect_extents = Vector2(150, 1)
+direction = Vector2(0.2, 1)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 34.48
+initial_velocity_max = 89.65
+damping_max = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="bg"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="bg"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 504.0
+offset_right = 304.0
+offset_bottom = 540.0
+color = Color(0, 0, 0, 1)
+
+[node name="Secret" type="Control" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 18)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 106.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Secret"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Secret/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Found what you want?"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+use_parent_material = true
+clip_contents = false
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 540.0
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Page1" type="Control" parent="ScrollContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="AISearch" parent="ScrollContainer/HBoxContainer/Page1" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 114.0
+texture = ExtResource("8_f05wn")
+text = "Calculator"
+open_gui = "Calculator"
+
+[node name="Maps" parent="ScrollContainer/HBoxContainer/Page1" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 90.0
+offset_top = 40.0
+offset_right = 144.0
+offset_bottom = 114.0
+texture = ExtResource("6_r70oj")
+text = "Maps"
+open_gui = "Maps"
+
+[node name="Clock" type="Control" parent="ScrollContainer/HBoxContainer/Page1"]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 160.0
+offset_top = 40.0
+offset_right = 284.0
+offset_bottom = 164.0
+mouse_filter = 2
+script = ExtResource("7_0ksyf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Page1/Clock"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 140.0
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Page1/Clock/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("8_khjla")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Page1/Clock/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Clock"
+horizontal_alignment = 1
+
+[node name="SecondSprite" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/Page1/Clock"]
+use_parent_material = true
+position = Vector2(62, 62)
+sprite_frames = SubResource("SpriteFrames_bbcnt")
+animation = &"minute"
+
+[node name="MinuteSprite" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/Page1/Clock"]
+use_parent_material = true
+position = Vector2(62, 62)
+sprite_frames = SubResource("SpriteFrames_bbcnt")
+animation = &"minute"
+
+[node name="HourSprite" type="AnimatedSprite2D" parent="ScrollContainer/HBoxContainer/Page1/Clock"]
+use_parent_material = true
+position = Vector2(62, 62)
+sprite_frames = SubResource("SpriteFrames_leshw")
+animation = &"hour"
+frame = 5
+frame_progress = 0.659651
+
+[node name="Apps" type="CenterContainer" parent="ScrollContainer/HBoxContainer/Page1"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -86.0
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer/HBoxContainer/Page1/Apps"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 0
+columns = 4
+
+[node name="Control" type="Control" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Control2" type="Control" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Music" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("6_0pb7a")
+text = "Music"
+open_gui = "Music"
+
+[node name="Photos" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("12_wa2jy")
+text = "Photos"
+open_gui = "Photos"
+
+[node name="Notepad" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("7_8k14o")
+text = "Notepad"
+open_gui = "Notepad"
+
+[node name="Chats" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("5_424yk")
+text = "Chats"
+open_gui = "Chats"
+
+[node name="News" parent="ScrollContainer/HBoxContainer/Page1/Apps/GridContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("11_5w4s6")
+text = "News"
+open_gui = "News"
+
+[node name="Calendar" type="Control" parent="ScrollContainer/HBoxContainer/Page1"]
+use_parent_material = true
+custom_minimum_size = Vector2(124, 124)
+layout_mode = 2
+anchors_preset = 0
+offset_left = 20.0
+offset_top = 114.0
+offset_right = 144.0
+offset_bottom = 258.0
+mouse_filter = 2
+script = ExtResource("16_v7eyf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer/Page1/Calendar"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 144.0
+theme_override_constants/separation = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Page1/Calendar/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("24_q74wr")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="ScrollContainer/HBoxContainer/Page1/Calendar/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Calendar"
+horizontal_alignment = 1
+
+[node name="Month" type="Label" parent="ScrollContainer/HBoxContainer/Page1/Calendar"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 11.0
+offset_top = 16.0
+offset_right = 69.0
+offset_bottom = 32.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "December"
+
+[node name="Day" type="Label" parent="ScrollContainer/HBoxContainer/Page1/Calendar"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 25.0
+offset_top = 32.0
+offset_right = 83.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "3rd"
+
+[node name="Events" type="Label" parent="ScrollContainer/HBoxContainer/Page1/Calendar"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 15.0
+offset_top = 79.0
+offset_right = 108.0
+offset_bottom = 95.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "No events today"
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Page1/Calendar"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 124.0
+offset_bottom = 124.0
+
+[node name="Page2" type="Control" parent="ScrollContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Calculator" parent="ScrollContainer/HBoxContainer/Page2" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+offset_left = 14.0
+offset_top = 40.0
+offset_right = 80.0
+offset_bottom = 114.0
+texture = ExtResource("13_xln2r")
+text = "AISearch"
+open_gui = "AISearch"
+
+[node name="Page3" type="Control" parent="ScrollContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Application3" parent="ScrollContainer/HBoxContainer/Page3" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 160.0
+offset_top = 110.0
+offset_right = 214.0
+offset_bottom = 182.0
+texture = ExtResource("17_nxta4")
+text = "Ikun"
+
+[node name="Button" type="Button" parent="ScrollContainer/HBoxContainer/Page3/Application3"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 54.0
+offset_bottom = 54.0
+script = SubResource("GDScript_uyoka")
+
+[node name="hidden" type="Control" parent="ScrollContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Application" parent="ScrollContainer/HBoxContainer/hidden" instance=ExtResource("4_pmpe4")]
+modulate = Color(1, 1, 1, 0.0784314)
+z_index = 1
+offset_top = 290.0
+offset_bottom = 362.0
+text = ""
+open_gui = "Hidden"
+
+[node name="Page4" type="Control" parent="ScrollContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ScrollContainer/HBoxContainer/Page4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="ScrollContainer/HBoxContainer/Page4"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -86.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("19_cov5o")
+stretch_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="TextureRect2" type="TextureRect" parent="ScrollContainer/HBoxContainer/Page4"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = 82.0
+offset_right = 62.0
+offset_bottom = -164.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("19_cov5o")
+expand_mode = 1
+stretch_mode = 1
+flip_h = true
+flip_v = true
+
+[node name="Application2" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 20.0
+offset_top = 40.0
+offset_right = 74.0
+offset_bottom = 114.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Application3" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 151.0
+offset_top = 110.0
+offset_right = 205.0
+offset_bottom = 184.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Application4" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 78.0
+offset_top = 184.0
+offset_right = 132.0
+offset_bottom = 258.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Application5" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 231.0
+offset_top = 217.0
+offset_right = 285.0
+offset_bottom = 291.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Application6" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 111.0
+offset_top = 273.0
+offset_right = 165.0
+offset_bottom = 347.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Application7" parent="ScrollContainer/HBoxContainer/Page4" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+offset_left = 32.0
+offset_top = 314.0
+offset_right = 86.0
+offset_bottom = 388.0
+texture = ExtResource("16_pcyed")
+text = "Secrets"
+
+[node name="Label3" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/Page4"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 240.0
+offset_right = 232.0
+offset_bottom = 262.0
+theme_override_fonts/normal_font = ExtResource("31_rv41i")
+bbcode_enabled = true
+text = "[shake rate=30 level=10]Make Oceania Great Again!"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="ScrollContainer/HBoxContainer/Page4"]
+remote_path = NodePath("../../../../BackBufferCopy")
+
+[node name="PagePoints" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_top = 395.0
+offset_right = 304.0
+offset_bottom = 405.0
+script = ExtResource("19_u0p2e")
+fill_texture = ExtResource("10_axht0")
+empty_texture = ExtResource("11_0rr40")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PagePoints"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="TextureRect" type="TextureRect" parent="PagePoints/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_axht0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="PagePoints/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_axht0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="PagePoints/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_axht0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="TextureRect4" type="TextureRect" parent="PagePoints/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+size_flags_horizontal = 6
+texture = ExtResource("10_axht0")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="DownApps" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 140.0
+offset_bottom = 214.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="DownApps"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Phone" parent="DownApps/HBoxContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("11_6jxcy")
+text = "Phone"
+open_gui = "Phone"
+
+[node name="Contacts" parent="DownApps/HBoxContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("27_iuonk")
+text = "Contacts"
+open_gui = "Contacts"
+
+[node name="CallHistory" parent="DownApps/HBoxContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("13_l5rq5")
+text = "Call History"
+open_gui = "CallHistory"
+
+[node name="Settings" parent="DownApps/HBoxContainer" instance=ExtResource("4_pmpe4")]
+custom_minimum_size = Vector2(54, 74)
+layout_mode = 2
+size_flags_horizontal = 2
+texture = ExtResource("14_vxq8f")
+text = "Settings"
+open_gui = "Settings"
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+position = Vector2(982, 0)
+copy_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Glitch" type="ColorRect" parent="BackBufferCopy"]
+material = SubResource("ShaderMaterial_0fjtl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 104.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Glitch2" type="ColorRect" parent="BackBufferCopy"]
+material = SubResource("ShaderMaterial_0fjtl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -191.0
+offset_top = 73.0
+offset_right = -198.0
+offset_bottom = 53.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Glitch3" type="ColorRect" parent="BackBufferCopy"]
+material = SubResource("ShaderMaterial_0fjtl")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -152.0
+offset_top = 410.0
+offset_right = -217.0
+offset_bottom = 303.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 62.0
+offset_top = -66.0
+offset_right = 219.0
+offset_bottom = -52.0
+bbcode_enabled = true
+text = "[shake rate=30 level=10]Make Oceania Great Again!"
+fit_content = true
+
+[connection signal="gui_input" from="ScrollContainer" to="." method="_on_scroll_container_gui_input"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Page1/Calendar/Button" to="ScrollContainer/HBoxContainer/Page1/Calendar" method="_on_button_pressed"]
+[connection signal="pressed" from="ScrollContainer/HBoxContainer/Page3/Application3/Button" to="ScrollContainer/HBoxContainer/Page3/Application3/Button" method="_on_pressed"]

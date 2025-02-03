@@ -1,0 +1,170 @@
+[gd_scene load_steps=9 format=3 uid="uid://b2mgc8wp8xjil"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_10f6l"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabel.gd" id="1_jon4n"]
+[ext_resource type="Script" path="res://Main/Components/News/news_container.gd" id="2_rvku5"]
+[ext_resource type="Script" path="res://Main/Components/Missions/Trigger.gd" id="3_6gnxo"]
+[ext_resource type="Texture2D" uid="uid://b4ru13ndt4w7g" path="res://Assets/Textures/ui/like.png" id="4_ly2y3"]
+[ext_resource type="Texture2D" uid="uid://c1krwpcjm8c53" path="res://Assets/Textures/ui/comment.png" id="5_aw81u"]
+[ext_resource type="Texture2D" uid="uid://dku84esweg4lo" path="res://Assets/Textures/ui/repost.png" id="6_3vof2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v8ome"]
+bg_color = Color(1, 1, 1, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="NewsContainer" type="PanelContainer" groups=["NewsContainer"]]
+use_parent_material = true
+custom_minimum_size = Vector2(292, 0)
+offset_right = 294.0
+offset_bottom = 279.0
+mouse_filter = 2
+theme = ExtResource("1_10f6l")
+script = ExtResource("2_rvku5")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_right = 8
+
+[node name="NewsTitle" type="Label" parent="VBoxContainer/MarginContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "News Title"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_jon4n")
+
+[node name="NewsPhoto" type="TextureRect" parent="VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+script = ExtResource("3_6gnxo")
+
+[node name="Panel" type="Panel" parent="VBoxContainer/NewsPhoto"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v8ome")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Likes" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Likes"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_ly2y3")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="LikesLabel" type="Label" parent="VBoxContainer/HBoxContainer/Likes"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "likes"
+vertical_alignment = 1
+
+[node name="Comments" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 1.5
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Comments"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_aw81u")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="CommentsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Comments"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "comments"
+vertical_alignment = 1
+
+[node name="Reposts" type="HBoxContainer" parent="VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0.5)
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/Reposts"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("6_3vof2")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="RepostsLabel" type="Label" parent="VBoxContainer/HBoxContainer/Reposts"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "reposts"
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/MarginContainer2"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MarginContainer2/VBoxContainer"]
+visible = false
+use_parent_material = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+vertical_alignment = 1
+autowrap_mode = 3
+script = ExtResource("1_jon4n")

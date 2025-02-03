@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://dwg1rnsytk3lg"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_wdov8"]
+[ext_resource type="Script" path="res://Main/Components/Home/application.gd" id="2_5xu3u"]
+[ext_resource type="Texture2D" uid="uid://cvswl6juvsju8" path="res://Assets/Textures/ui/panel.png" id="3_hqrto"]
+
+[sub_resource type="Gradient" id="Gradient_5kuod"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.593458, 0.771028)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hpnsv"]
+gradient = SubResource("Gradient_5kuod")
+width = 16
+height = 16
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+metadata/_snap_enabled = true
+
+[node name="Application" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(54, 70)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 54.0
+offset_bottom = 74.0
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = ExtResource("1_wdov8")
+script = ExtResource("2_5xu3u")
+texture = ExtResource("3_hqrto")
+
+[node name="Control" type="VBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 2
+
+[node name="AppButton" type="TextureButton" parent="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+texture_normal = ExtResource("3_hqrto")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="AppName" type="Label" parent="Control"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "app"
+horizontal_alignment = 1
+
+[node name="NotiNumber" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 42.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 12.0
+grow_horizontal = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="NotiNumber"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_hpnsv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Number" type="Label" parent="NotiNumber"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "•"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/AppButton" to="." method="_on_texture_button_pressed"]

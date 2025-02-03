@@ -1,0 +1,163 @@
+[gd_scene load_steps=13 format=3 uid="uid://dv5g5rpucq7p5"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_0isb6"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_iw5t8"]
+[ext_resource type="Script" path="res://scene/news.gd" id="3_8d8bf"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_4xuv8"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_48211"]
+[ext_resource type="Texture2D" uid="uid://dxb0a7snrj3mn" path="res://Assets/Textures/photos/tank.jpg" id="7_fptvj"]
+[ext_resource type="Texture2D" uid="uid://13ccslnp7x1l" path="res://Assets/Textures/photos/moga.png" id="7_g7kdd"]
+[ext_resource type="Texture2D" uid="uid://b0aju7vwr0qrk" path="res://Assets/Textures/photos/war_victims.jpg" id="8_prkbn"]
+[ext_resource type="PackedScene" uid="uid://b2mgc8wp8xjil" path="res://Main/Components/News/news_container.tscn" id="10_5kocj"]
+[ext_resource type="Texture2D" uid="uid://dh64cfowus5uq" path="res://Assets/Textures/photos/mask.png" id="10_sggxl"]
+
+[sub_resource type="Resource" id="Resource_n5sqe"]
+script = ExtResource("5_48211")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_6a2ea"]
+script = ExtResource("5_48211")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[node name="News" type="Control"]
+material = ExtResource("1_0isb6")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_iw5t8")
+script = ExtResource("3_8d8bf")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="header" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -250.0
+offset_bottom = -210.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "News"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 60.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("4_4xuv8")
+wheel_scroll_damper = SubResource("Resource_n5sqe")
+dragging_scroll_damper = SubResource("Resource_6a2ea")
+
+[node name="MarginContainer" type="MarginContainer" parent="ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="News_wall" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_5kocj")]
+layout_mode = 2
+mouse_filter = 1
+news_title = "News_wall"
+news_photo = ExtResource("7_g7kdd")
+likes = "295.2k"
+
+[node name="News_mask" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_5kocj")]
+layout_mode = 2
+mouse_filter = 1
+news_title = "News_mask"
+news_photo = ExtResource("10_sggxl")
+likes = "52.5k"
+comments = "13.2k"
+reposts = "6.9k"
+comments_below = Array[String](["News_mask_c1", "News_mask_c2", "News_mask_c3"])
+
+[node name="News_war" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_5kocj")]
+layout_mode = 2
+mouse_filter = 1
+news_title = "News_war"
+news_photo = ExtResource("7_fptvj")
+likes = "36.5k"
+comments = "5.3k"
+reposts = "4.1k"
+comments_below = Array[String](["News_war_c1", "News_war_c2", "News_war_c3"])
+
+[node name="News_war2" parent="ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("10_5kocj")]
+layout_mode = 2
+mouse_filter = 1
+news_title = "News_war2"
+news_photo = ExtResource("8_prkbn")
+likes = "61.2k"
+comments = "18.4k"
+reposts = "7.6k"
+comments_below = Array[String](["News_war2_c1", "News_war2_c2", "News_war2_c3"])

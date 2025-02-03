@@ -1,0 +1,325 @@
+<mxfile host="Electron" modified="2024-07-12T00:19:08.503Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.1.18 Chrome/120.0.6099.199 Electron/28.1.2 Safari/537.36" etag="Des0-40pA7OZ3tgZiGWL" version="22.1.18" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1311" dy="1043" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-60" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1" connectable="0">
+          <mxGeometry x="195" y="1324" width="600" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-48" value="" style="group" parent="P4KzA-4ddwvFhlrKLmol-60" vertex="1" connectable="0">
+          <mxGeometry width="600" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-47" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry width="600" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-14" value="烛心要求玩家确认母亲情况" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry x="190" y="40" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-16" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;关于与烛心的交流&lt;/font&gt;&lt;/b&gt;&lt;br&gt;boss来电，询问烛心的情况，交代部分信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry x="430" y="130" width="120" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-17" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-14" target="P4KzA-4ddwvFhlrKLmol-16" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-20" value="给母亲打电话" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry x="300" y="250" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-21" value="找到号码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-14" target="P4KzA-4ddwvFhlrKLmol-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-22" target="P4KzA-4ddwvFhlrKLmol-20" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-22" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;关于给烛心的母亲打电话&lt;/font&gt;&lt;/b&gt;&lt;br&gt;给boss打电话询问号码，boss给予提示" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry x="60" y="240" width="140" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-23" value="没有找到号码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-14" target="P4KzA-4ddwvFhlrKLmol-22" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-24" value="向烛心交代母亲的情况" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-48" vertex="1">
+          <mxGeometry x="190" y="430" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-26" value="拨打母亲电话，&lt;br&gt;罗德雷克加入通讯录" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-20" target="P4KzA-4ddwvFhlrKLmol-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-25" value="未拨打母亲电话,&lt;br&gt;之后都不能再次拨通" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="P4KzA-4ddwvFhlrKLmol-48" source="P4KzA-4ddwvFhlrKLmol-22" target="P4KzA-4ddwvFhlrKLmol-24" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-58" value="笔记：关于疫苗" style="ellipse;whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-60" vertex="1">
+          <mxGeometry x="450" y="260" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-59" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="P4KzA-4ddwvFhlrKLmol-60" source="P4KzA-4ddwvFhlrKLmol-16" target="P4KzA-4ddwvFhlrKLmol-58" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AIE3W8hDl6yr15WzIe1y-3" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1" connectable="0">
+          <mxGeometry x="190" y="80" width="620" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-49" value="" style="group;" parent="AIE3W8hDl6yr15WzIe1y-3" vertex="1" connectable="0">
+          <mxGeometry width="620" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-44" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry width="610" height="670" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-3" value="任务：开机密码" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="180" y="18.61111111111111" width="120" height="37.22222222222222" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-7" value="&lt;font style=&quot;&quot; color=&quot;#ff3399&quot;&gt;&lt;b&gt;~ Locked&lt;/b&gt;&lt;br&gt;&lt;/font&gt;boss的第一次电话，要求破解密码" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="310" y="130.27777777777777" width="120" height="55.833333333333336" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-7" value="调查密码中" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="WIyWlLk6GJQsqaUBKTNV-3" target="WIyWlLk6GJQsqaUBKTNV-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-31" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;~ call_start&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;b style=&quot;color: rgb(255, 51, 153);&quot;&gt;~ Locked&lt;/b&gt;&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/b&gt;&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;~ First_Mission&lt;/font&gt;&lt;/b&gt;&lt;br&gt;boss的第一次电话，要求调查基本信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="70" y="307.0833333333333" width="120" height="83.75" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-32" value="在boss打电话前就输入正确密码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="WIyWlLk6GJQsqaUBKTNV-3" target="P4KzA-4ddwvFhlrKLmol-31" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-33" value="成功开锁" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="280" y="407.42777777777775" width="120" height="37.22222222222222" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-34" value="2分钟内找到密码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="WIyWlLk6GJQsqaUBKTNV-7" target="P4KzA-4ddwvFhlrKLmol-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-38" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="P4KzA-4ddwvFhlrKLmol-36" target="P4KzA-4ddwvFhlrKLmol-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-36" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;~ Havent_found_the_password&lt;/font&gt;&lt;/b&gt;&lt;br&gt;boss打电话提示密码" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="400" y="279.1666666666667" width="190" height="37.22222222222222" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-37" value="2分钟内未找到密码" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="WIyWlLk6GJQsqaUBKTNV-7" target="P4KzA-4ddwvFhlrKLmol-36" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-39" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;~ call_start&lt;/font&gt;&lt;/b&gt;&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;&lt;br&gt;~ First_Mission&lt;/font&gt;&lt;/b&gt;&lt;br&gt;boss的第二次电话，要求调查基本信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="280" y="487.43222222222226" width="120" height="65.13888888888889" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-40" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="P4KzA-4ddwvFhlrKLmol-49" source="P4KzA-4ddwvFhlrKLmol-33" target="P4KzA-4ddwvFhlrKLmol-39" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="7RpDxoORxQuWuKuyIieH-2" value="坏结局" style="rounded=1;whiteSpace=wrap;html=1;" parent="P4KzA-4ddwvFhlrKLmol-49" vertex="1">
+          <mxGeometry x="480" y="460" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="7RpDxoORxQuWuKuyIieH-0" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="P4KzA-4ddwvFhlrKLmol-49" source="P4KzA-4ddwvFhlrKLmol-36" target="7RpDxoORxQuWuKuyIieH-2" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="710" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="7RpDxoORxQuWuKuyIieH-3" value="说出1984" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="7RpDxoORxQuWuKuyIieH-0" vertex="1" connectable="0">
+          <mxGeometry x="0.0172" y="-2" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="AIE3W8hDl6yr15WzIe1y-1" value="坏结局" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="875" y="408.4033333333333" width="120" height="37.22222222222222" as="geometry" />
+        </mxCell>
+        <mxCell id="AIE3W8hDl6yr15WzIe1y-0" value="拒接boss电话4次" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="875" y="320.0005555555556" width="120" height="37.22222222222222" as="geometry" />
+        </mxCell>
+        <mxCell id="AIE3W8hDl6yr15WzIe1y-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="AIE3W8hDl6yr15WzIe1y-0" target="AIE3W8hDl6yr15WzIe1y-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5DLiHVR6KXy2RfSoSsoO-0" target="5DLiHVR6KXy2RfSoSsoO-2" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-0" value="&lt;font color=&quot;#ff3399&quot;&gt;~ tailor&lt;/font&gt;&lt;br&gt;boss要求调查机主" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="935" y="1080" width="120" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-5" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5DLiHVR6KXy2RfSoSsoO-2" target="5DLiHVR6KXy2RfSoSsoO-4" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-6" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5DLiHVR6KXy2RfSoSsoO-2" target="XkRJ5RtZ1II0Cvru3bHx-5" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-2" value="破解出上锁相册的密码" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="935" y="1167.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="5DLiHVR6KXy2RfSoSsoO-4" target="5DLiHVR6KXy2RfSoSsoO-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-4" value="告诉boss自己与烛心的往事" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="935" y="1257.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-6" value="坏结局" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="935" y="1347.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XkRJ5RtZ1II0Cvru3bHx-0" target="XkRJ5RtZ1II0Cvru3bHx-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-0" value="再次拨打罗德雷克的号码" style="rounded=1;whiteSpace=wrap;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="855" y="1580" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-4" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XkRJ5RtZ1II0Cvru3bHx-1" target="XkRJ5RtZ1II0Cvru3bHx-3" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-1" value="得知关于拿破仑和老大哥的事情" style="whiteSpace=wrap;html=1;rounded=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="855" y="1660" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-3" value="得知老大哥并未死亡，接受白金筹码任务" style="whiteSpace=wrap;html=1;rounded=1;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="855" y="1750" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-8" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XkRJ5RtZ1II0Cvru3bHx-5" target="XkRJ5RtZ1II0Cvru3bHx-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-5" value="选择隐瞒" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1140" y="1270" width="120" height="42.5" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-7" value="拨打照片上的号码信息，开启神秘人线" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="1140" y="1383.75" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="XkRJ5RtZ1II0Cvru3bHx-7" target="XkRJ5RtZ1II0Cvru3bHx-7" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-37" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1" connectable="0">
+          <mxGeometry x="120" y="1860" width="750" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-32" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry width="750" height="760" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-18" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-14" target="XkRJ5RtZ1II0Cvru3bHx-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cuDMpBh0sM9PKAoweu08-3" value="成功" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="XkRJ5RtZ1II0Cvru3bHx-18">
+          <mxGeometry x="0.1702" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-10" value="与烛心交流，得知她已经到边境墙前，但具体位置未知" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="300" y="30" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-12" value="根据之前的所有线索用排除法找出烛心的位置" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="40" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-14" value="说服烛心告诉你她的位置" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="300" y="240" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-13" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-14" target="XkRJ5RtZ1II0Cvru3bHx-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-16" value="失败" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="XkRJ5RtZ1II0Cvru3bHx-13" vertex="1" connectable="0">
+          <mxGeometry x="-0.2687" y="5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-17" value="获取或没有获取到正确位置" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="300" y="430" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-12" target="XkRJ5RtZ1II0Cvru3bHx-17" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-23" value="同流合污结局，boss成了新局长" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="10" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-24" value="在12点前告知boss正确位置" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-17" target="XkRJ5RtZ1II0Cvru3bHx-23" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-25" value="同流合污结局，你成了新的局长" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="200" y="620" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-26" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-17" target="XkRJ5RtZ1II0Cvru3bHx-25" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-27" value="在12点前告知罗德雷克正确位置" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="XkRJ5RtZ1II0Cvru3bHx-26" vertex="1" connectable="0">
+          <mxGeometry x="0.24" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-28" value="牢狱结局，无法得知烛心最后有没有逃出去" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="390" y="660" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-29" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-17" target="XkRJ5RtZ1II0Cvru3bHx-28" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-30" value="告知错误位置" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="XkRJ5RtZ1II0Cvru3bHx-29" vertex="1" connectable="0">
+          <mxGeometry x="0.1771" y="-5" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-33" value="完美逃脱结局，此时烛心已经逃出边境墙" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;fillColor=#0050ef;fontColor=#ffffff;strokeColor=#001DBC;" parent="XkRJ5RtZ1II0Cvru3bHx-37" vertex="1">
+          <mxGeometry x="580" y="560" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-34" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-17" target="XkRJ5RtZ1II0Cvru3bHx-33" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-35" value="在12点后告知正确位置" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="XkRJ5RtZ1II0Cvru3bHx-34" vertex="1" connectable="0">
+          <mxGeometry x="-0.1394" y="-1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="cuDMpBh0sM9PKAoweu08-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="cuDMpBh0sM9PKAoweu08-0" target="XkRJ5RtZ1II0Cvru3bHx-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="cuDMpBh0sM9PKAoweu08-0" value="任务：找到烛心的位置" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="XkRJ5RtZ1II0Cvru3bHx-37">
+          <mxGeometry x="300" y="140" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="cuDMpBh0sM9PKAoweu08-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="XkRJ5RtZ1II0Cvru3bHx-37" source="XkRJ5RtZ1II0Cvru3bHx-10" target="cuDMpBh0sM9PKAoweu08-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-41" value="" style="group" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1" connectable="0">
+          <mxGeometry x="195" y="808.75" width="590" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-40" value="" style="rounded=0;whiteSpace=wrap;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry width="590" height="470" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-12" value="与烛心建立沟通，烛心的第一次信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="240" y="272.5" width="120" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="AiCStYRORx7fV0jySzBj-0" value="接了烛心的电话" style="rounded=1;whiteSpace=wrap;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="420" y="332.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="P4KzA-4ddwvFhlrKLmol-12" target="AiCStYRORx7fV0jySzBj-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="AiCStYRORx7fV0jySzBj-1" value="坏结局" style="rounded=1;whiteSpace=wrap;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="420" y="412.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="AiCStYRORx7fV0jySzBj-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="AiCStYRORx7fV0jySzBj-0" target="AiCStYRORx7fV0jySzBj-1" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-3" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="GQ6k1oTzOzHXysOTe1-U-0" target="P4KzA-4ddwvFhlrKLmol-12" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="460" y="262.4999999999998" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-5" value="&lt;br&gt;" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" parent="GQ6k1oTzOzHXysOTe1-U-3" vertex="1" connectable="0">
+          <mxGeometry x="-0.5769" y="1" relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-0" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;关于基本信息的调查&lt;/font&gt;&lt;/b&gt;&lt;br&gt;给boss打电话求助，boss告知目标的信息" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="20" y="137.5" width="140" height="55" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="WIyWlLk6GJQsqaUBKTNV-12" target="GQ6k1oTzOzHXysOTe1-U-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-12" value="任务：找出基本信息" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="240" y="22.5" width="120" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="GQ6k1oTzOzHXysOTe1-U-6" target="P4KzA-4ddwvFhlrKLmol-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-6" value="&lt;b&gt;&lt;font color=&quot;#ff3399&quot;&gt;~ base_information_complete&lt;/font&gt;&lt;/b&gt;&lt;br&gt;完成任务后，boss来电" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" parent="XkRJ5RtZ1II0Cvru3bHx-41" vertex="1">
+          <mxGeometry x="210" y="142.5" width="180" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="GQ6k1oTzOzHXysOTe1-U-7" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="XkRJ5RtZ1II0Cvru3bHx-41" source="WIyWlLk6GJQsqaUBKTNV-12" target="GQ6k1oTzOzHXysOTe1-U-6" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="5DLiHVR6KXy2RfSoSsoO-1" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="GQ6k1oTzOzHXysOTe1-U-6" target="5DLiHVR6KXy2RfSoSsoO-0" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-15" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="P4KzA-4ddwvFhlrKLmol-12" target="P4KzA-4ddwvFhlrKLmol-14" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.25;entryY=0;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="P4KzA-4ddwvFhlrKLmol-31" target="WIyWlLk6GJQsqaUBKTNV-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="P4KzA-4ddwvFhlrKLmol-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="P4KzA-4ddwvFhlrKLmol-39" target="WIyWlLk6GJQsqaUBKTNV-12" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="XkRJ5RtZ1II0Cvru3bHx-42" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="P4KzA-4ddwvFhlrKLmol-24" target="XkRJ5RtZ1II0Cvru3bHx-10" edge="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

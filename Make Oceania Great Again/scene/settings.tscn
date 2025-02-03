@@ -1,0 +1,645 @@
+[gd_scene load_steps=18 format=3 uid="uid://c52btoyc4md7y"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_nx1h3"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_fe02v"]
+[ext_resource type="StyleBox" uid="uid://drde2dw1q03t3" path="res://Assets/Resource/Themes/pixel/pixel_style_panel_texture_reverse.tres" id="3_gcqf2"]
+[ext_resource type="Script" path="res://scene/settings.gd" id="3_un656"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_2j0bs"]
+[ext_resource type="Script" path="res://Main/Components/Settings/VolumeSlider.gd" id="5_ja3j3"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_kljqm"]
+[ext_resource type="Script" path="res://Main/Components/Settings/LanguageOption.gd" id="6_5c7rq"]
+[ext_resource type="PackedScene" uid="uid://c2kp6ygjh3af8" path="res://Main/Components/Settings/popup.tscn" id="8_xosme"]
+[ext_resource type="Texture2D" uid="uid://dut5nhdag7by" path="res://Assets/Textures/button/back.png" id="9_n5ywt"]
+[ext_resource type="Script" path="res://Main/Components/Settings/ColorSettingPage.gd" id="9_v3bby"]
+
+[sub_resource type="Resource" id="Resource_2vat4"]
+script = ExtResource("5_kljqm")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_l645n"]
+script = ExtResource("5_kljqm")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_awygj"]
+viewport_path = NodePath("ColorSettingPage/Content/PanelContainer/SubViewport")
+
+[sub_resource type="Animation" id="Animation_uk66c"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsList:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorSettingPage:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsList:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_edava"]
+resource_name = "into_color"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SettingsList:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorSettingPage:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsList:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yg7hi"]
+_data = {
+"RESET": SubResource("Animation_uk66c"),
+"into_color": SubResource("Animation_edava")
+}
+
+[node name="Settings" type="Control"]
+material = ExtResource("1_nx1h3")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_fe02v")
+script = ExtResource("3_un656")
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="SettingsList" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 500.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="SettingsList"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 304.0
+offset_bottom = 480.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("4_2j0bs")
+wheel_scroll_damper = SubResource("Resource_2vat4")
+dragging_scroll_damper = SubResource("Resource_l645n")
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingsList/ScrollContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="SoundLabel" type="MarginContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundLabel"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundLabel/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+text = "Sound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundLabel/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+
+[node name="MasterVolume" type="PanelContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_gcqf2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MasterVolume"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Master Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MasterVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("5_ja3j3")
+bus_name = "Master"
+
+[node name="SoundVolume" type="PanelContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_gcqf2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundVolume"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Sound Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/SoundVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("5_ja3j3")
+bus_name = "SFX"
+
+[node name="MusicVolume" type="PanelContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_gcqf2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MusicVolume"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Music Volume"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/MusicVolume/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+size_flags_stretch_ratio = 2.0
+mouse_filter = 1
+max_value = 1.0
+step = 0.1
+value = 1.0
+script = ExtResource("5_ja3j3")
+bus_name = "Music"
+
+[node name="Placeholder" type="Control" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="ColorLabel" type="MarginContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/ColorLabel"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/ColorLabel/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+text = "Color Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/ColorLabel/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(240, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 1
+
+[node name="Switch Palette" type="PanelContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReversePanel"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="BackwardButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "《"
+flat = true
+
+[node name="PaletteName" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+text = "Switch Palette"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ForwardButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "》
+"
+flat = true
+
+[node name="WhiteColorButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "White Color"
+alignment = 0
+
+[node name="ColorRect" type="ColorRect" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/WhiteColorButton"]
+use_parent_material = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_left = 258.0
+offset_top = 6.5
+offset_right = 276.0
+offset_bottom = 24.5
+mouse_filter = 1
+
+[node name="BlackColorButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Black Color"
+alignment = 0
+
+[node name="ColorRect" type="ColorRect" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/BlackColorButton"]
+use_parent_material = true
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 0
+offset_left = 258.0
+offset_top = 6.5
+offset_right = 276.0
+offset_bottom = 24.5
+mouse_filter = 1
+
+[node name="ColorRect2" type="ColorRect" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/BlackColorButton"]
+use_parent_material = true
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 0
+offset_left = 259.0
+offset_top = 7.5
+offset_right = 275.0
+offset_bottom = 23.5
+mouse_filter = 1
+color = Color(0, 0, 0, 1)
+
+[node name="RandomColorButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Random Palette"
+
+[node name="Placeholder2" type="Control" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Placeholder2"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Placeholder2/CenterContainer"]
+z_index = -1
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+text = "Found what you want?"
+
+[node name="Language" type="PanelContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = ExtResource("3_gcqf2")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Language"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="Label" type="Label" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Language/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+text = "Language"
+vertical_alignment = 1
+
+[node name="LanguageOption" type="OptionButton" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Language/HBoxContainer"]
+material = ExtResource("1_nx1h3")
+use_parent_material = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 1
+theme = ExtResource("2_fe02v")
+item_count = 2
+allow_reselect = true
+popup/item_0/text = "en"
+popup/item_0/id = 0
+popup/item_1/text = "zh"
+popup/item_1/id = 1
+script = ExtResource("6_5c7rq")
+
+[node name="ResetButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.5, 0.5, 0.5, 1)
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Restart Device"
+
+[node name="ReturnButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Return to Power-on Interface"
+
+[node name="QuitButton" type="Button" parent="SettingsList/ScrollContainer/MarginContainer/VBoxContainer"]
+modulate = Color(0.862, 0.078, 0.235, 1)
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "Power Off"
+
+[node name="Popup" parent="." instance=ExtResource("8_xosme")]
+
+[node name="ColorSettingPage" type="Control" parent="."]
+material = ExtResource("1_nx1h3")
+layout_mode = 3
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 500.0
+mouse_filter = 2
+script = ExtResource("9_v3bby")
+
+[node name="ColorRect" type="ColorRect" parent="ColorSettingPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="header" type="Control" parent="ColorSettingPage"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 40.0
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="ColorSettingPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="ColorSettingPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteName" type="Label" parent="ColorSettingPage/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "White Color"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="ColorSettingPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="ColorSettingPage/header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("9_n5ywt")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Content" type="CenterContainer" parent="ColorSettingPage"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorSettingPage/Content"]
+use_parent_material = true
+layout_mode = 2
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="TextureRect" type="TextureRect" parent="ColorSettingPage/Content/PanelContainer"]
+modulate = Color(1, 1, 1, 0.686275)
+layout_mode = 2
+texture = SubResource("ViewportTexture_awygj")
+stretch_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="ColorPicker" type="ColorPicker" parent="ColorSettingPage/Content/PanelContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme = ExtResource("2_fe02v")
+color_mode = 1
+picker_shape = 1
+sampler_visible = false
+color_modes_visible = false
+hex_visible = false
+presets_visible = false
+metadata/_edit_lock_ = true
+
+[node name="SubViewport" type="SubViewport" parent="ColorSettingPage/Content/PanelContainer"]
+disable_3d = true
+own_world_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(264, 390)
+
+[node name="ColorPicker" type="ColorPicker" parent="ColorSettingPage/Content/PanelContainer/SubViewport"]
+offset_right = 264.0
+offset_bottom = 355.0
+theme = ExtResource("2_fe02v")
+color_mode = 1
+picker_shape = 1
+sampler_visible = false
+color_modes_visible = false
+hex_visible = false
+presets_visible = false
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yg7hi")
+}
+
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette/HBoxContainer/BackwardButton" to="." method="_on_backward_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Switch Palette/HBoxContainer/ForwardButton" to="." method="_on_forward_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/WhiteColorButton" to="." method="_on_white_color_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/BlackColorButton" to="." method="_on_black_color_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/RandomColorButton" to="." method="_on_random_color_button_pressed"]
+[connection signal="item_selected" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Language/HBoxContainer/LanguageOption" to="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/Language/HBoxContainer/LanguageOption" method="_on_item_selected"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/ReturnButton" to="." method="_on_return_button_pressed"]
+[connection signal="pressed" from="SettingsList/ScrollContainer/MarginContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ColorSettingPage/header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="color_changed" from="ColorSettingPage/Content/PanelContainer/ColorPicker" to="ColorSettingPage" method="_on_color_picker_color_changed"]

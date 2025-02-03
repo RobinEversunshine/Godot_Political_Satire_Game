@@ -1,0 +1,87 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckh7oeac0mldr"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_c1gjl"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionList.gd" id="1_lyfse"]
+
+[node name="MissionList" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 34)
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+theme = ExtResource("1_c1gjl")
+script = ExtResource("1_lyfse")
+
+[node name="MissionHeader" type="Control" parent="."]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 34)
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 34.0
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MissionHeader"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MissionHeader/PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="MissionHeaderName" type="Label" parent="MissionHeader/PanelContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mission List"
+vertical_alignment = 1
+
+[node name="CompletePercent" type="Label" parent="MissionHeader/PanelContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "2/5"
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MissionHeader"]
+modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+toggle_mode = true
+
+[node name="ScrollPage" type="Control" parent="."]
+use_parent_material = true
+clip_contents = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+anchors_preset = 0
+offset_top = 34.0
+offset_right = 296.0
+offset_bottom = 74.0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -36.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[connection signal="gui_input" from="MissionHeader/Button" to="." method="_on_button_gui_input"]
+[connection signal="toggled" from="MissionHeader/Button" to="." method="_on_button_toggled"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://kyqsb2svdwk5"
+path="res://.godot/imported/call_mom.dialogue-bb680f09b39570eb742f3fc56ee85c08.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/call_mom.dialogue"
+dest_files=["res://.godot/imported/call_mom.dialogue-bb680f09b39570eb742f3fc56ee85c08.tres"]
+
+[params]
+
+defaults=true

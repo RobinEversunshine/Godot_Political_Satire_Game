@@ -1,0 +1,102 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkch552d8dncg"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_xrrhu"]
+[ext_resource type="Script" path="res://Main/Components/Missions/mouse_click.gd" id="2_xfgnc"]
+[ext_resource type="Texture2D" uid="uid://cr8roe2enpneq" path="res://Assets/Textures/ui/true_false1.png" id="3_77cxs"]
+[ext_resource type="Texture2D" uid="uid://bfyfam04qotjc" path="res://Assets/Textures/ui/true_false2.png" id="4_ok7un"]
+
+[sub_resource type="Animation" id="Animation_igyka"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextContainer:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_850p0"]
+resource_name = "click"
+length = 1.5
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextContainer:modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1, 1.5)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextContainer:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0),
+"points": PackedFloat32Array(-8, -0.25, 0, 0, -0.5, 0, -0.3, -0.5, 0.25, 0, 0, -0.25, 0, 0.4, 2.5, -16, -0.0400001, -0.5, 0, 0),
+"times": PackedFloat32Array(0, 0.3, 1.1, 1.5)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x3le3"]
+_data = {
+"RESET": SubResource("Animation_igyka"),
+"click": SubResource("Animation_850p0")
+}
+
+[node name="MouseClick" type="Control"]
+material = ExtResource("1_xrrhu")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+script = ExtResource("2_xfgnc")
+
+[node name="TextContainer" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="TextContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("3_77cxs")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="TextContainer"]
+use_parent_material = true
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+mouse_filter = 2
+texture = ExtResource("4_ok7un")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x3le3")
+}

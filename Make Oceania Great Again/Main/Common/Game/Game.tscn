@@ -1,0 +1,216 @@
+[gd_scene load_steps=65 format=3 uid="uid://d4e41c2xqouak"]
+
+[ext_resource type="Script" path="res://Main/Common/GUI/GUIViewManager.gd" id="1_ap0f0"]
+[ext_resource type="Script" path="res://Main/Common/Game/Game.gd" id="1_ql74b"]
+[ext_resource type="PackedScene" uid="uid://cengpdl1hbl6g" path="res://scene/home.tscn" id="2_2h4v1"]
+[ext_resource type="Script" path="res://Main/Common/GUI/GUIViewConfig.gd" id="3_piafm"]
+[ext_resource type="PackedScene" uid="uid://nntxyjjk0f05" path="res://scene/lock.tscn" id="4_ohylq"]
+[ext_resource type="PackedScene" uid="uid://0impxinhvi8y" path="res://scene/phone.tscn" id="5_j3sb5"]
+[ext_resource type="PackedScene" uid="uid://bayhghll2pbor" path="res://scene/phone_call.tscn" id="6_22u1s"]
+[ext_resource type="PackedScene" uid="uid://ttac71cuttem" path="res://scene/contacts.tscn" id="7_wm1hu"]
+[ext_resource type="PackedScene" uid="uid://cye16ingmrs4x" path="res://scene/chats.tscn" id="8_tlxwb"]
+[ext_resource type="PackedScene" uid="uid://bvanmer16opp1" path="res://scene/call_history.tscn" id="9_kmlcw"]
+[ext_resource type="PackedScene" uid="uid://c52btoyc4md7y" path="res://scene/settings.tscn" id="10_c45bl"]
+[ext_resource type="PackedScene" uid="uid://utpyfuxqqo2t" path="res://scene/photos.tscn" id="11_0hyrr"]
+[ext_resource type="PackedScene" uid="uid://dip0fkp6jg1kn" path="res://scene/music.tscn" id="12_iu05g"]
+[ext_resource type="PackedScene" uid="uid://cxp85fn88iryp" path="res://scene/maps.tscn" id="13_303ur"]
+[ext_resource type="PackedScene" uid="uid://epqi61pt1yts" path="res://scene/notepad.tscn" id="14_v0plr"]
+[ext_resource type="PackedScene" uid="uid://b7o0ygc1n8yda" path="res://scene/missions.tscn" id="15_wo86c"]
+[ext_resource type="PackedScene" uid="uid://dv5g5rpucq7p5" path="res://scene/news.tscn" id="16_6upv5"]
+[ext_resource type="PackedScene" uid="uid://deohwpkrbs0j" path="res://scene/calculator.tscn" id="17_lg5rk"]
+[ext_resource type="PackedScene" uid="uid://dhcbelcfbgokd" path="res://scene/hidden.tscn" id="18_wcmet"]
+[ext_resource type="PackedScene" uid="uid://b7qg0le07vmjd" path="res://scene/calendar.tscn" id="19_vqffc"]
+[ext_resource type="Script" path="res://Main/Common/Game/ContactList.gd" id="20_xyumk"]
+[ext_resource type="Resource" uid="uid://bwqrkh2dbqa3o" path="res://Assets/Resource/Contacts/contact_candleheart.tres" id="21_sidss"]
+[ext_resource type="Resource" uid="uid://dmvoj1o8f1ri4" path="res://Assets/Resource/Contacts/contact_boss.tres" id="22_x8bl7"]
+[ext_resource type="Resource" uid="uid://dtglk36ibsgwe" path="res://Assets/Resource/Contacts/contact_mom.tres" id="23_wbudh"]
+[ext_resource type="Resource" uid="uid://bxpt3cmn75eoq" path="res://Assets/Dialogues/test_dia.dialogue" id="24_mporf"]
+[ext_resource type="Script" path="res://Main/Common/Resource/Contact.gd" id="25_k0y1q"]
+[ext_resource type="Resource" uid="uid://cb1abhyb2a5ax" path="res://Assets/Resource/Contacts/contact_1984.tres" id="26_r2656"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="27_pag4o"]
+[ext_resource type="Script" path="res://Main/Common/Game/ColorGradientList.gd" id="28_u8xx6"]
+[ext_resource type="Gradient" uid="uid://dxrympyaopmnv" path="res://Assets/Resource/ColorGradients/shader_gradient.tres" id="29_pc43k"]
+[ext_resource type="Material" uid="uid://brrv8ft31l0y4" path="res://Assets/Resource/Shaders/mouse_material.tres" id="30_h77sc"]
+[ext_resource type="Texture2D" uid="uid://bg0rqq33q0uin" path="res://Assets/Textures/mouse/mouse_16.png" id="31_6tebo"]
+[ext_resource type="Script" path="res://Main/Components/Mouse.gd" id="32_qp6md"]
+
+[sub_resource type="Resource" id="Resource_1kw4g"]
+script = ExtResource("3_piafm")
+id = &"Home"
+prefab = ExtResource("2_2h4v1")
+
+[sub_resource type="Resource" id="Resource_ibi52"]
+script = ExtResource("3_piafm")
+id = &"Lock"
+prefab = ExtResource("4_ohylq")
+
+[sub_resource type="Resource" id="Resource_hhlim"]
+script = ExtResource("3_piafm")
+id = &"Phone"
+prefab = ExtResource("5_j3sb5")
+
+[sub_resource type="Resource" id="Resource_72fhi"]
+script = ExtResource("3_piafm")
+id = &"PhoneCall"
+prefab = ExtResource("6_22u1s")
+
+[sub_resource type="Resource" id="Resource_mhis4"]
+script = ExtResource("3_piafm")
+id = &"Contacts"
+prefab = ExtResource("7_wm1hu")
+
+[sub_resource type="Resource" id="Resource_ele4i"]
+script = ExtResource("3_piafm")
+id = &"Chats"
+prefab = ExtResource("8_tlxwb")
+
+[sub_resource type="Resource" id="Resource_lejh7"]
+script = ExtResource("3_piafm")
+id = &"CallHistory"
+prefab = ExtResource("9_kmlcw")
+
+[sub_resource type="Resource" id="Resource_e6ykc"]
+script = ExtResource("3_piafm")
+id = &"Settings"
+prefab = ExtResource("10_c45bl")
+
+[sub_resource type="Resource" id="Resource_7cqms"]
+script = ExtResource("3_piafm")
+id = &"Photos"
+prefab = ExtResource("11_0hyrr")
+
+[sub_resource type="Resource" id="Resource_hdrk8"]
+script = ExtResource("3_piafm")
+id = &"Music"
+prefab = ExtResource("12_iu05g")
+
+[sub_resource type="Resource" id="Resource_grmre"]
+script = ExtResource("3_piafm")
+id = &"Maps"
+prefab = ExtResource("13_303ur")
+
+[sub_resource type="Resource" id="Resource_ysowx"]
+script = ExtResource("3_piafm")
+id = &"Notepad"
+prefab = ExtResource("14_v0plr")
+
+[sub_resource type="Resource" id="Resource_nsxbx"]
+script = ExtResource("3_piafm")
+id = &"Missions"
+prefab = ExtResource("15_wo86c")
+
+[sub_resource type="Resource" id="Resource_smpoc"]
+script = ExtResource("3_piafm")
+id = &"News"
+prefab = ExtResource("16_6upv5")
+
+[sub_resource type="Resource" id="Resource_5y23y"]
+script = ExtResource("3_piafm")
+id = &"Calculator"
+prefab = ExtResource("17_lg5rk")
+
+[sub_resource type="Resource" id="Resource_lpd4i"]
+script = ExtResource("3_piafm")
+id = &"Hidden"
+prefab = ExtResource("18_wcmet")
+
+[sub_resource type="Resource" id="Resource_uhtmy"]
+script = ExtResource("3_piafm")
+id = &"Calendar"
+prefab = ExtResource("19_vqffc")
+
+[sub_resource type="Resource" id="Resource_o3ufy"]
+script = ExtResource("25_k0y1q")
+id = &"Robin"
+phone_number = 1111
+call_dialogue_resource = ExtResource("24_mporf")
+callable = false
+call_default_bg_sfx = Array[AudioStream]([])
+text_call_list_history = Array[Resource("res://Main/Common/Resource/Call.gd")]([])
+
+[sub_resource type="Gradient" id="Gradient_8griw"]
+interpolation_mode = 2
+colors = PackedColorArray(0.164706, 0.164706, 0.164706, 1, 0.843137, 0.843137, 0.843137, 1)
+
+[sub_resource type="Gradient" id="Gradient_xj1m1"]
+interpolation_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_5yjys"]
+interpolation_mode = 2
+colors = PackedColorArray(0.329412, 0, 0.141176, 1, 0.929412, 0.552941, 0.121569, 1)
+
+[sub_resource type="Gradient" id="Gradient_8spml"]
+interpolation_mode = 2
+colors = PackedColorArray(0.239216, 0.192157, 0.290196, 1, 0.572549, 0.862745, 0.898039, 1)
+
+[sub_resource type="Gradient" id="Gradient_6dsfb"]
+interpolation_mode = 2
+colors = PackedColorArray(0.6, 0.156863, 0.25098, 1, 0.870588, 0.764706, 0.745098, 1)
+
+[sub_resource type="Gradient" id="Gradient_autia"]
+interpolation_mode = 2
+colors = PackedColorArray(0.145098, 0.0392157, 0.2, 1, 0.513726, 0.376471, 0.568627, 1)
+
+[sub_resource type="Gradient" id="Gradient_5b3ki"]
+interpolation_mode = 2
+colors = PackedColorArray(0.109804, 0.34902, 0.337255, 1, 0.760784, 0.654902, 0.447059, 1)
+
+[sub_resource type="Gradient" id="Gradient_1agco"]
+interpolation_mode = 2
+colors = PackedColorArray(0.364706, 0.164706, 0.258824, 1, 0.984314, 0.388235, 0.462745, 1)
+
+[sub_resource type="Gradient" id="Gradient_5j4gf"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0.0470588, 0.14902, 1, 0.721569, 0.113725, 0.203922, 1)
+
+[sub_resource type="Gradient" id="Gradient_agnhj"]
+interpolation_mode = 2
+colors = PackedColorArray(0.301961, 0.152941, 0.0196078, 1, 0.721569, 0.533333, 0.317647, 1)
+
+[sub_resource type="Gradient" id="Gradient_04guj"]
+interpolation_mode = 2
+colors = PackedColorArray(0.411765, 0, 0.203922, 1, 0.447059, 0.537255, 0.721569, 1)
+
+[sub_resource type="Gradient" id="Gradient_l6sbe"]
+interpolation_mode = 2
+colors = PackedColorArray(0.0431373, 0.0745098, 0.101961, 1, 0.243137, 0.262745, 0.360784, 1)
+
+[sub_resource type="Gradient" id="Gradient_hlnw1"]
+interpolation_mode = 2
+colors = PackedColorArray(0.509804, 0.392157, 0.290196, 1, 1, 0.780392, 0.490196, 1)
+
+[node name="Game" type="Node"]
+script = ExtResource("1_ql74b")
+
+[node name="GUIViewManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("1_ap0f0")
+ViewConfigList = Array[ExtResource("3_piafm")]([SubResource("Resource_1kw4g"), SubResource("Resource_ibi52"), SubResource("Resource_hhlim"), SubResource("Resource_72fhi"), SubResource("Resource_mhis4"), SubResource("Resource_ele4i"), SubResource("Resource_lejh7"), SubResource("Resource_e6ykc"), SubResource("Resource_7cqms"), SubResource("Resource_hdrk8"), SubResource("Resource_grmre"), SubResource("Resource_ysowx"), SubResource("Resource_nsxbx"), SubResource("Resource_smpoc"), SubResource("Resource_5y23y"), SubResource("Resource_lpd4i"), SubResource("Resource_uhtmy")])
+
+[node name="ContactList" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("20_xyumk")
+contactList = Array[ExtResource("25_k0y1q")]([ExtResource("21_sidss"), ExtResource("22_x8bl7"), ExtResource("23_wbudh"), ExtResource("26_r2656"), SubResource("Resource_o3ufy")])
+
+[node name="ColorGradientList" type="Control" parent="."]
+unique_name_in_owner = true
+material = ExtResource("27_pag4o")
+layout_mode = 3
+anchors_preset = 0
+mouse_filter = 2
+script = ExtResource("28_u8xx6")
+color_gradient_list = Array[Gradient]([SubResource("Gradient_8griw"), SubResource("Gradient_xj1m1"), SubResource("Gradient_5yjys"), SubResource("Gradient_8spml"), SubResource("Gradient_6dsfb"), SubResource("Gradient_autia"), SubResource("Gradient_5b3ki"), SubResource("Gradient_1agco"), SubResource("Gradient_5j4gf"), SubResource("Gradient_agnhj"), SubResource("Gradient_04guj"), SubResource("Gradient_l6sbe"), SubResource("Gradient_hlnw1")])
+shader_gradient = ExtResource("29_pc43k")
+metadata/_edit_use_anchors_ = true
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+metadata/_edit_lock_ = true
+
+[node name="Mouse" type="Sprite2D" parent="BackBufferCopy"]
+top_level = true
+z_index = 100
+material = ExtResource("30_h77sc")
+texture = ExtResource("31_6tebo")
+offset = Vector2(8, 8)
+script = ExtResource("32_qp6md")

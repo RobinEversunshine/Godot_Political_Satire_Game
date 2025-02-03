@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://x22yw6exyia"
+path="res://.godot/imported/Sonata no. 2 in B flat minor 'Funeral march' - III. Marche Funebre, Lento.mp3-07334b79335db1fa4769749e3f5810d6.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Songs/Sonata no. 2 in B flat minor 'Funeral march' - III. Marche Funebre, Lento.mp3"
+dest_files=["res://.godot/imported/Sonata no. 2 in B flat minor 'Funeral march' - III. Marche Funebre, Lento.mp3-07334b79335db1fa4769749e3f5810d6.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

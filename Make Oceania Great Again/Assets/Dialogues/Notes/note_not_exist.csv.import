@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://coljos5fhuo4s"
+
+[deps]
+
+files=["res://Assets/Dialogues/Notes/note_not_exist.en.translation"]
+
+source_file="res://Assets/Dialogues/Notes/note_not_exist.csv"
+dest_files=["res://Assets/Dialogues/Notes/note_not_exist.en.translation"]
+
+[params]
+
+compress=true
+delimiter=0

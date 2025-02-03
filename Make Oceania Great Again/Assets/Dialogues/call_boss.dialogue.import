@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://db08omtrxxruh"
+path="res://.godot/imported/call_boss.dialogue-3644dd041b8b51ad942062ce2235d0a6.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/call_boss.dialogue"
+dest_files=["res://.godot/imported/call_boss.dialogue-3644dd041b8b51ad942062ce2235d0a6.tres"]
+
+[params]
+
+defaults=true

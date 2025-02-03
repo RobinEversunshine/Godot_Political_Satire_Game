@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://deyny0tw30a0i"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_jbcny"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionBox.gd" id="1_t3fvx"]
+
+[node name="MissionBox" type="PanelContainer" groups=["MissionBox"]]
+use_parent_material = true
+custom_minimum_size = Vector2(280, 0)
+offset_right = 280.0
+offset_bottom = 34.0
+theme = ExtResource("1_jbcny")
+script = ExtResource("1_t3fvx")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+
+[node name="MissionName" type="Label" parent="HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Mission Name"
+vertical_alignment = 1
+
+[node name="Complete" type="Label" parent="HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "not complete"
+vertical_alignment = 1

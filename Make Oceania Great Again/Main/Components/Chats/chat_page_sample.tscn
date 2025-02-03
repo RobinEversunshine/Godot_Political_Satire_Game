@@ -1,0 +1,210 @@
+[gd_scene load_steps=12 format=3 uid="uid://cevqntvvf3dxp"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_630xu"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_gavnc"]
+[ext_resource type="Script" path="res://Main/Components/Chats/chat_page_sample.gd" id="3_wow02"]
+[ext_resource type="PackedScene" uid="uid://i1aihfjv0ogw" path="res://Main/Components/Chats/message.tscn" id="4_0ahv1"]
+[ext_resource type="Texture2D" uid="uid://c0jlv03ntirgf" path="res://Assets/Textures/bg/hands.png" id="5_usnna"]
+[ext_resource type="Texture2D" uid="uid://dut5nhdag7by" path="res://Assets/Textures/button/back.png" id="6_aqxtc"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="7_fk5rl"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="7_g1vsd"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="8_sv70n"]
+
+[sub_resource type="Resource" id="Resource_ieln4"]
+script = ExtResource("8_sv70n")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_hrg11"]
+script = ExtResource("8_sv70n")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[node name="ChatPageSample" type="Control"]
+material = ExtResource("1_630xu")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 480.0
+mouse_filter = 2
+theme = ExtResource("2_gavnc")
+script = ExtResource("3_wow02")
+message = ExtResource("4_0ahv1")
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="BGTexture" type="TextureRect" parent="."]
+modulate = Color(0.5, 0.5, 0.5, 1)
+use_parent_material = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 440.0
+texture = ExtResource("5_usnna")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="header" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ContactName" type="Label" parent="header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Contact name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("6_aqxtc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="HSeparator" type="HSeparator" parent="header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MessageScroll" type="ScrollContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("7_g1vsd")
+wheel_scroll_damper = SubResource("Resource_ieln4")
+dragging_scroll_damper = SubResource("Resource_hrg11")
+
+[node name="MarginContainer" type="MarginContainer" parent="MessageScroll"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MessageScroll/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="TimeLabel" type="RichTextLabel" parent="MessageScroll/MarginContainer/VBoxContainer"]
+visible = false
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+bbcode_enabled = true
+text = "[center]10/29/2023 3.59 PM"
+fit_content = true
+scroll_active = false
+
+[node name="DialogueResponsesMenu" type="VBoxContainer" parent="MessageScroll/MarginContainer/VBoxContainer" node_paths=PackedStringArray("response_template")]
+use_parent_material = true
+layout_mode = 2
+script = ExtResource("7_fk5rl")
+response_template = NodePath("ResponseButton")
+
+[node name="ResponseButton" type="Button" parent="MessageScroll/MarginContainer/VBoxContainer/DialogueResponsesMenu"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "ResponseButton"
+
+[node name="Down" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 200.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSeparator" type="HSeparator" parent="Down"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Down"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SkipModeButton" type="CheckButton" parent="Down/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "skipmode"
+flat = true
+alignment = 1
+
+[connection signal="pressed" from="header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="response_selected" from="MessageScroll/MarginContainer/VBoxContainer/DialogueResponsesMenu" to="." method="_on_dialogue_responses_menu_response_selected"]
+[connection signal="toggled" from="Down/CenterContainer/SkipModeButton" to="." method="_on_skip_mode_button_toggled"]

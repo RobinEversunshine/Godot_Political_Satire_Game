@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://b538u2l6dk4gi"
+path="res://.godot/imported/ai_search.dialogue-0f0ce60998cec4e3eb8970b739553638.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/ai_search.dialogue"
+dest_files=["res://.godot/imported/ai_search.dialogue-0f0ce60998cec4e3eb8970b739553638.tres"]
+
+[params]
+
+defaults=true

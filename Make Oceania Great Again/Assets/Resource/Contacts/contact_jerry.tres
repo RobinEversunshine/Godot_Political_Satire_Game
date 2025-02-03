@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Contact" load_steps=3 format=3 uid="uid://bkw46dnr5cbni"]
+
+[ext_resource type="Texture2D" uid="uid://clgeac1xehakb" path="res://Assets/Textures/ContactProfiles/jerry_profile_128.png" id="1_84jp3"]
+[ext_resource type="Script" path="res://Main/Common/Resource/Contact.gd" id="2_ujewn"]
+
+[resource]
+script = ExtResource("2_ujewn")
+id = &"Jerry Smith"
+profile_photo_128 = ExtResource("1_84jp3")
+phone_number = 3221
+callable = false
+call_default_bg_sfx = Array[AudioStream]([])
+text_call_list_history = Array[Resource("res://Main/Common/Resource/Call.gd")]([])

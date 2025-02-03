@@ -1,0 +1,81 @@
+[gd_scene load_steps=6 format=3 uid="uid://i1aihfjv0ogw"]
+
+[ext_resource type="Script" path="res://Main/Components/Chats/message.gd" id="1_0pwgj"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_eg3cf"]
+[ext_resource type="Texture2D" uid="uid://cim2jxa2gvuwp" path="res://Assets/Textures/ContactProfiles/default_profile_38.png" id="3_56tnq"]
+[ext_resource type="Script" path="res://Main/Components/Missions/Trigger.gd" id="5_mjn6w"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="5_v5g36"]
+
+[node name="Message" type="MarginContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 38)
+offset_right = 296.0
+offset_bottom = 38.0
+mouse_filter = 2
+theme = ExtResource("2_eg3cf")
+script = ExtResource("1_0pwgj")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_56tnq")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+self_modulate = Color(0, 0, 0, 1)
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 10
+mouse_filter = 2
+theme_type_variation = &"ReversePanel"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Control" type="Control" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="DialogueLabel" type="RichTextLabel" parent="HBoxContainer/PanelContainer/VBoxContainer"]
+use_parent_material = true
+clip_contents = false
+custom_minimum_size = Vector2(196, 15)
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/line_separation = 5
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "test dialogue "
+fit_content = true
+scroll_active = false
+script = ExtResource("5_v5g36")
+seconds_per_step = 0.04
+
+[node name="Trigger" type="Control" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 1
+script = ExtResource("5_mjn6w")
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(38, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("3_56tnq")
+expand_mode = 5
+stretch_mode = 5

@@ -1,0 +1,623 @@
+[gd_scene load_steps=19 format=3 uid="uid://bayhghll2pbor"]
+
+[ext_resource type="Script" path="res://scene/phone_call.gd" id="1_iia48"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_nkwan"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="2_uj2fu"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_label.gd" id="3_k45of"]
+[ext_resource type="Texture2D" uid="uid://dloy8ec8nltp2" path="res://Assets/Textures/ContactProfiles/default_profile_128.png" id="4_bshtd"]
+[ext_resource type="Script" path="res://addons/dialogue_manager/dialogue_reponses_menu.gd" id="5_w3fa5"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="5_xm8bg"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="6_wtpsf"]
+[ext_resource type="Texture2D" uid="uid://optok63rm1ja" path="res://Assets/Textures/phone/phone1.png" id="7_haxtf"]
+[ext_resource type="Texture2D" uid="uid://cjps85qshgo24" path="res://Assets/Textures/phone/phone3.png" id="8_otg0a"]
+[ext_resource type="Texture2D" uid="uid://d0un2g7uip1rf" path="res://Assets/Textures/phone/phone2.png" id="8_p026d"]
+[ext_resource type="Texture2D" uid="uid://dp75oa8ghr1n6" path="res://Assets/Textures/phone/phone4.png" id="10_n06kw"]
+
+[sub_resource type="Resource" id="Resource_f6o4f"]
+script = ExtResource("6_wtpsf")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_qbgs4"]
+script = ExtResource("6_wtpsf")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Animation" id="Animation_kwts6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContactProfile:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 120)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/RejectButton:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(48, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/AnswerButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialogue:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialogue:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons/AnswerButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CallingStateContainer:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 290)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CallingStateContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_gvppl"]
+resource_name = "answer_call"
+length = 0.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContactProfile:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 120), Vector2(0, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/RejectButton:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(48, 0), Vector2(125, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/AnswerButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.79, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialogue:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialogue:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons/AnswerButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.29, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CallingStateContainer:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 290), Vector2(0, 205)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CallingStateContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.79, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_kptw0"]
+resource_name = "call_contact"
+length = 0.8
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContactProfile:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 120), Vector2(0, 35)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Buttons/RejectButton:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(125, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Buttons/AnswerButton:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TimerContainer:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.79, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dialogue:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.2, 0.21),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dialogue:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Buttons/AnswerButton:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CallingStateContainer:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 290), Vector2(0, 205)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CallingStateContainer:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.79, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ptmgl"]
+_data = {
+"RESET": SubResource("Animation_kwts6"),
+"answer_call": SubResource("Animation_gvppl"),
+"call_contact": SubResource("Animation_kptw0")
+}
+
+[node name="PhoneCall" type="Control"]
+material = ExtResource("1_nkwan")
+custom_minimum_size = Vector2(304, 540)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("2_uj2fu")
+script = ExtResource("1_iia48")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ContactProfile" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+offset_top = 120.0
+offset_right = 304.0
+offset_bottom = 292.999
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ContactProfile"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="Profile" type="TextureRect" parent="ContactProfile/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_bshtd")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="Name" type="Label" parent="ContactProfile/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "contact name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TimerContainer" type="CenterContainer" parent="."]
+visible = false
+use_parent_material = true
+layout_mode = 0
+offset_top = 205.0
+offset_right = 304.0
+offset_bottom = 223.0
+
+[node name="PhoneCallTimer" type="Label" parent="TimerContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CallingStateContainer" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_top = 290.0
+offset_right = 304.0
+offset_bottom = 308.0
+
+[node name="CallingState" type="Label" parent="CallingStateContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "calling..."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Dialogue" type="Control" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.0
+offset_bottom = 118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="Dialogue"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Dialogue"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+script = ExtResource("5_xm8bg")
+wheel_scroll_damper = SubResource("Resource_f6o4f")
+dragging_scroll_damper = SubResource("Resource_qbgs4")
+hide_scrollbar_over_time = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Dialogue/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Dialogue/ScrollContainer/MarginContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(264, 0)
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Margin" type="Control" parent="Dialogue/ScrollContainer/MarginContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 55)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="DialogueLabel" type="RichTextLabel" parent="Dialogue/ScrollContainer/MarginContainer/VBoxContainer"]
+visible = false
+use_parent_material = true
+clip_contents = false
+custom_minimum_size = Vector2(0, 15)
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/line_separation = 5
+theme_override_font_sizes/bold_font_size = 24
+bbcode_enabled = true
+text = "[center]test dialogue "
+fit_content = true
+scroll_active = false
+script = ExtResource("3_k45of")
+seconds_per_step = 0.04
+
+[node name="DialogueResponsesMenu" type="VBoxContainer" parent="Dialogue/ScrollContainer/MarginContainer/VBoxContainer" node_paths=PackedStringArray("response_template")]
+use_parent_material = true
+layout_mode = 2
+script = ExtResource("5_w3fa5")
+response_template = NodePath("ResponseButton")
+
+[node name="ResponseButton" type="Button" parent="Dialogue/ScrollContainer/MarginContainer/VBoxContainer/DialogueResponsesMenu"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_type_variation = &"ReverseButton"
+text = "ResponseButton"
+
+[node name="Buttons" type="Control" parent="."]
+use_parent_material = true
+layout_mode = 2
+anchors_preset = 0
+offset_top = 400.0
+offset_right = 304.0
+offset_bottom = 454.0
+
+[node name="RejectButton" type="TextureButton" parent="Buttons"]
+use_parent_material = true
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+offset_left = 48.0
+offset_right = 102.0
+offset_bottom = 54.0
+pivot_offset = Vector2(60, 60)
+texture_normal = ExtResource("7_haxtf")
+texture_pressed = ExtResource("8_otg0a")
+texture_disabled = ExtResource("8_otg0a")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Buttons/RejectButton"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 31.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Decline"
+horizontal_alignment = 1
+
+[node name="AnswerButton" type="TextureButton" parent="Buttons"]
+use_parent_material = true
+custom_minimum_size = Vector2(54, 54)
+layout_mode = 2
+offset_left = 202.0
+offset_right = 256.0
+offset_bottom = 54.0
+pivot_offset = Vector2(60, 60)
+texture_normal = ExtResource("8_p026d")
+texture_pressed = ExtResource("10_n06kw")
+texture_disabled = ExtResource("10_n06kw")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Buttons/AnswerButton"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 31.0
+offset_bottom = 47.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Accept"
+horizontal_alignment = 1
+
+[node name="SkipModeButton" type="CheckButton" parent="."]
+use_parent_material = true
+layout_mode = 2
+offset_left = 107.0
+offset_top = 509.0
+offset_right = 197.0
+offset_bottom = 525.0
+text = "skipmode"
+flat = true
+alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ptmgl")
+}
+
+[connection signal="response_selected" from="Dialogue/ScrollContainer/MarginContainer/VBoxContainer/DialogueResponsesMenu" to="." method="_on_dialogue_responses_menu_response_selected"]
+[connection signal="pressed" from="Buttons/RejectButton" to="." method="_on_reject_button_pressed"]
+[connection signal="pressed" from="Buttons/AnswerButton" to="." method="_on_answer_button_pressed"]
+[connection signal="toggled" from="SkipModeButton" to="." method="_on_skip_mode_button_toggled"]

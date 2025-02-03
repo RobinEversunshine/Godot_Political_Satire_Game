@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://smp1to4tjrno"
+path="res://.godot/imported/Nocturne in E flat major, Op. 9 no. 2.mp3-3d066cb115838e72947491bf0eb082e8.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sound/Songs/Nocturne in E flat major, Op. 9 no. 2.mp3"
+dest_files=["res://.godot/imported/Nocturne in E flat major, Op. 9 no. 2.mp3-3d066cb115838e72947491bf0eb082e8.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

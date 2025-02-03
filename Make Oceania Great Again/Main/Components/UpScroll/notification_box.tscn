@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://wded43q166yw"]
+
+[ext_resource type="Script" path="res://Main/Components/UpScroll/NotificationBox.gd" id="1_8qumb"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_e20hf"]
+[ext_resource type="Texture2D" uid="uid://cim2jxa2gvuwp" path="res://Assets/Textures/ContactProfiles/default_profile_38.png" id="2_4ds2p"]
+[ext_resource type="Texture2D" uid="uid://cm0f3njqxbla0" path="res://Assets/Textures/ContactProfiles/notepad.png" id="3_opvuv"]
+[ext_resource type="Texture2D" uid="uid://b2qpumioavncf" path="res://Assets/Textures/ContactProfiles/missions.png" id="4_k48sm"]
+[ext_resource type="Texture2D" uid="uid://ehjk6moh3xia" path="res://Assets/Textures/ContactProfiles/contacts.png" id="5_74v1h"]
+[ext_resource type="Texture2D" uid="uid://618puqd0v3rb" path="res://Assets/Textures/ContactProfiles/call_history.png" id="6_dc50y"]
+
+[node name="NotificationBox" type="PanelContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(280, 52)
+offset_right = 280.0
+offset_bottom = 54.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme = ExtResource("1_e20hf")
+script = ExtResource("1_8qumb")
+notepad_texture = ExtResource("3_opvuv")
+missions_texture = ExtResource("4_k48sm")
+contacts_texture = ExtResource("5_74v1h")
+call_history_texture = ExtResource("6_dc50y")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="NotiTexture" type="TextureRect" parent="HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+texture = ExtResource("2_4ds2p")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="NotiOwner" type="Label" parent="HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Owner Name"
+vertical_alignment = 1
+
+[node name="NotiContent" type="Label" parent="HBoxContainer/VBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(210, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "Note 101 has been added to your"
+vertical_alignment = 1
+autowrap_mode = 3
+max_lines_visible = 2
+
+[node name="NotificationButton" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+
+[connection signal="pressed" from="NotificationButton" to="." method="_on_notification_button_pressed"]

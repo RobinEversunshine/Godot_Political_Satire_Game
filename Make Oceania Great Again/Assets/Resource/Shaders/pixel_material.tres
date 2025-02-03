@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://c7jieej3lgwy2"]
+
+[ext_resource type="Shader" path="res://Assets/Resource/Shaders/pixel.gdshader" id="1_8bs8w"]
+
+[resource]
+shader = ExtResource("1_8bs8w")
+shader_parameter/uniform_texture = true
+shader_parameter/use_height = false
+shader_parameter/pixel_size_uniform = 240
+shader_parameter/pixel_size = Vector2(240, 240)

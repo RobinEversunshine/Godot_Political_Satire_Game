@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://fwa8crb83kmm"]
+
+[ext_resource type="Script" path="res://TextureRect.gd" id="1_7w6ga"]
+[ext_resource type="Shader" uid="uid://bae3211b6cq85" path="res://Assets/Resource/Shaders/test_1bit_shader.tres" id="1_ik27t"]
+[ext_resource type="Texture2D" uid="uid://bxfnssh1vhlch" path="res://Assets/Textures/photos/laywer.png" id="2_00mvm"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabel.gd" id="2_8wgun"]
+[ext_resource type="Texture2D" uid="uid://cwdpvnq5mq66l" path="res://Assets/references/829fdf71c71bba032b392c47623933a0.jpg" id="2_nmp2g"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="6_2qp5q"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4on5x"]
+shader = ExtResource("1_ik27t")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_041i7"]
+viewport_path = NodePath("TextureRect2/SubViewport")
+
+[node name="Node" type="Node"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_4on5x")
+offset_left = 52.0
+offset_top = 118.0
+offset_right = 616.0
+offset_bottom = 891.0
+mouse_filter = 2
+texture = ExtResource("2_nmp2g")
+script = ExtResource("1_7w6ga")
+image_texture = ExtResource("2_00mvm")
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="TextureRect"]
+layout_mode = 0
+offset_left = 235.0
+offset_top = 856.0
+offset_right = 310.0
+offset_bottom = 924.0
+
+[node name="ColorPickerButton2" type="ColorPickerButton" parent="TextureRect"]
+layout_mode = 0
+offset_left = 394.0
+offset_top = 856.0
+offset_right = 469.0
+offset_bottom = 924.0
+
+[node name="What" type="Label" parent="."]
+visible = false
+use_parent_material = true
+offset_left = 211.0
+offset_top = 45.0
+offset_right = 423.0
+offset_bottom = 94.0
+text = "[mission=I want to run]November"
+vertical_alignment = 1
+script = ExtResource("2_8wgun")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 211.0
+offset_top = -54.0
+offset_right = 768.0
+offset_bottom = 463.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = ExtResource("6_2qp5q")
+offset_left = 19.0
+offset_top = 94.0
+offset_right = 404.0
+offset_bottom = 502.0
+mouse_filter = 2
+texture = SubResource("ViewportTexture_041i7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SubViewport" type="SubViewport" parent="TextureRect2"]
+own_world_3d = true
+audio_listener_enable_3d = true
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+offset_left = 52.0
+offset_top = 22.0
+offset_right = 417.0
+offset_bottom = 209.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[url=\"do_something\"]update_scroll_respondupdate_scroll_respond[/url]
+update_scroll_respond
+update_scroll_respond
+update_scroll_respond
+[url=\"air\"]update_scroll_respond"
+fit_content = true
+autowrap_mode = 0
+meta_underlined = false
+
+[connection signal="color_changed" from="TextureRect/ColorPickerButton" to="TextureRect" method="_on_color_picker_button_color_changed"]
+[connection signal="color_changed" from="TextureRect/ColorPickerButton2" to="TextureRect" method="_on_color_picker_button_2_color_changed"]
+[connection signal="meta_clicked" from="ScrollContainer/RichTextLabel" to="TextureRect" method="_on_rich_text_label_meta_clicked"]

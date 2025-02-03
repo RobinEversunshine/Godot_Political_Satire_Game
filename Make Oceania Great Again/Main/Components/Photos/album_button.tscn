@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://dhjiw0rffilwr"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_adtuo"]
+[ext_resource type="Script" path="res://Main/Components/Photos/AlbumButton.gd" id="1_psffu"]
+[ext_resource type="Shader" path="res://Assets/Resource/Shaders/pixel.gdshader" id="2_km236"]
+[ext_resource type="Texture2D" uid="uid://dp2ggd8tf4we" path="res://Assets/Textures/ui/lock_white.png" id="3_nq77f"]
+[ext_resource type="Texture2D" uid="uid://er5w7c7exuhx" path="res://Assets/Textures/ui/app_reverse.png" id="4_d2dm5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nhvtf"]
+shader = ExtResource("2_km236")
+shader_parameter/uniform_texture = true
+shader_parameter/use_height = false
+shader_parameter/pixel_size_uniform = 120
+shader_parameter/pixel_size = Vector2(240, 240)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_wms4h"]
+viewport_path = NodePath("VBoxContainer/Panel/AlbumButton/SubViewport")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4nxpu"]
+texture = ExtResource("4_d2dm5")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[node name="AlbumButton" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(120, 142)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 120.0
+offset_bottom = 142.0
+size_flags_horizontal = 6
+mouse_filter = 2
+theme = ExtResource("1_adtuo")
+script = ExtResource("1_psffu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="VBoxContainer"]
+clip_children = 2
+use_parent_material = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"ReversePanel"
+
+[node name="AlbumButton" type="TextureButton" parent="VBoxContainer/Panel"]
+material = SubResource("ShaderMaterial_nhvtf")
+use_parent_material = true
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 120.0
+texture_normal = SubResource("ViewportTexture_wms4h")
+ignore_texture_size = true
+stretch_mode = 3
+
+[node name="SubViewport" type="SubViewport" parent="VBoxContainer/Panel/AlbumButton"]
+own_world_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(120, 120)
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Panel/AlbumButton/SubViewport"]
+custom_minimum_size = Vector2(120, 120)
+offset_right = 120.0
+offset_bottom = 120.0
+texture = ExtResource("3_nq77f")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Panel2" type="Panel" parent="VBoxContainer/Panel"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4nxpu")
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Album"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="mouse_entered" from="VBoxContainer/Panel/AlbumButton" to="." method="_on_album_button_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Panel/AlbumButton" to="." method="_on_album_button_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Panel/AlbumButton" to="." method="_on_album_button_pressed"]

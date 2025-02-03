@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://bob4dskjr1bhb"
+path="res://.godot/imported/call_tailor.dialogue-59e5a008048ed646c48a949f7359b4cc.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/call_tailor.dialogue"
+dest_files=["res://.godot/imported/call_tailor.dialogue-59e5a008048ed646c48a949f7359b4cc.tres"]
+
+[params]
+
+defaults=true

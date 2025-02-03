@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://dpcnvn7kav0t1"
+path="res://.godot/imported/call_candleheart.dialogue-e9a5fd327301b5cf5bbf5706b0bd26d1.tres"
+
+[deps]
+
+source_file="res://Assets/Dialogues/call_candleheart.dialogue"
+dest_files=["res://.godot/imported/call_candleheart.dialogue-e9a5fd327301b5cf5bbf5706b0bd26d1.tres"]
+
+[params]
+
+defaults=true

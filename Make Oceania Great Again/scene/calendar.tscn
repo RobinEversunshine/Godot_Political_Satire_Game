@@ -1,0 +1,387 @@
+[gd_scene load_steps=10 format=3 uid="uid://b7qg0le07vmjd"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_1o1me"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_yc7y3"]
+[ext_resource type="Script" path="res://scene/calendar.gd" id="2_e2mgx"]
+[ext_resource type="Texture2D" uid="uid://dcfusjerahguu" path="res://Assets/Textures/ui/date_event.png" id="4_563ti"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabel.gd" id="4_xmav7"]
+[ext_resource type="Script" path="res://Main/Components/Calendar/ImportCSV.gd" id="5_0cjh8"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabelRich.gd" id="7_4xb1u"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ef4e6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_45126"]
+
+[node name="CalendarDemo" type="Control"]
+material = ExtResource("1_1o1me")
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+mouse_filter = 2
+theme = ExtResource("1_yc7y3")
+script = ExtResource("2_e2mgx")
+date_event_texture = ExtResource("4_563ti")
+
+[node name="ImportCSV" type="Node" parent="."]
+script = ExtResource("5_0cjh8")
+
+[node name="BackgroundColor" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Padding" type="MarginContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+
+[node name="CalendarComponents" type="HBoxContainer" parent="Padding"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 30
+
+[node name="YearCalendarContainer" type="VBoxContainer" parent="Padding/CalendarComponents"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.57
+mouse_filter = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Padding/CalendarComponents/YearCalendarContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="YearMinus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ReverseButton"
+text = "《"
+
+[node name="YearButton" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ReverseButton"
+theme_override_font_sizes/font_size = 32
+toggle_mode = true
+text = "2024"
+
+[node name="YearPlus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+text = "》"
+
+[node name="MarginContainer" type="MarginContainer" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+
+[node name="MonthMinus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_type_variation = &"ReverseButton"
+text = "《"
+
+[node name="MonthButton" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ReverseButton"
+toggle_mode = true
+text = "December"
+
+[node name="MonthPlus" type="Button" parent="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(35, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ReverseButton"
+text = "》"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Padding/CalendarComponents/YearCalendarContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 2
+mouse_filter = 2
+horizontal_scroll_mode = 3
+vertical_scroll_mode = 0
+
+[node name="YearCalendar" type="HBoxContainer" parent="Padding/CalendarComponents/YearCalendarContainer/ScrollContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 6
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Padding/CalendarComponents"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 50
+
+[node name="Language" type="Label" parent="Padding/CalendarComponents/VBoxContainer"]
+layout_mode = 2
+text = "Demo languages"
+
+[node name="LanguageOptionButton" type="OptionButton" parent="Padding/CalendarComponents/VBoxContainer/Language"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 256.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Choose any of the available  demo languages."
+item_count = 4
+selected = 0
+popup/item_0/text = "English"
+popup/item_0/id = 0
+popup/item_1/text = "Spanish"
+popup/item_1/id = 1
+popup/item_2/text = "Simplified Chinese"
+popup/item_2/id = 2
+popup/item_3/text = "Swedish"
+popup/item_3/id = 3
+
+[node name="FirstWeekday" type="Label" parent="Padding/CalendarComponents/VBoxContainer"]
+layout_mode = 2
+text = "First weekday"
+
+[node name="FirstWeekdayOptionButton" type="OptionButton" parent="Padding/CalendarComponents/VBoxContainer/FirstWeekday"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 256.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+tooltip_text = "Set the first weekday of the week."
+item_count = 7
+selected = 0
+popup/item_0/text = "Monday"
+popup/item_0/id = 0
+popup/item_1/text = "Tuesday"
+popup/item_1/id = 1
+popup/item_2/text = "Wednesday"
+popup/item_2/id = 2
+popup/item_3/text = "Thursday"
+popup/item_3/id = 3
+popup/item_4/text = "Friday"
+popup/item_4/id = 4
+popup/item_5/text = "Saturday"
+popup/item_5/id = 5
+popup/item_6/text = "Sunday"
+popup/item_6/id = 6
+
+[node name="WeekNumberSystem" type="Label" parent="Padding/CalendarComponents/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+text = "Week Number System"
+
+[node name="WeekNumberSystemOptionButton" type="OptionButton" parent="Padding/CalendarComponents/VBoxContainer/WeekNumberSystem"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 256.0
+offset_bottom = 58.0
+tooltip_text = "Set how week numbers are calculated. 
+In code this is set by the WeekNumberSystem enum.
+First four day week (WEEK_NUMBER_FOUR_DAY)
+The first week of the year that have four days in it is considered to be week 1. 
+This is aligned with the ISO8601 standard.
+
+Traditional (WEEK_NUMBER_TRADITIONAL)
+The week with January 1 is always considered to be week 1."
+item_count = 2
+selected = 0
+popup/item_0/text = "First four day week"
+popup/item_0/id = 0
+popup/item_1/text = "Traditional"
+popup/item_1/id = 1
+
+[node name="WeekNumbersCheckButton" type="CheckButton" parent="Padding/CalendarComponents/VBoxContainer/WeekNumberSystem"]
+layout_mode = 0
+offset_top = 66.0
+offset_right = 256.0
+offset_bottom = 97.0
+button_pressed = true
+text = "Show week numbers"
+
+[node name="HSeparator" type="HSeparator" parent="Padding/CalendarComponents/VBoxContainer"]
+layout_mode = 2
+
+[node name="DatePicker" type="Button" parent="Padding/CalendarComponents/VBoxContainer"]
+layout_mode = 2
+toggle_mode = true
+text = "Select date"
+alignment = 0
+
+[node name="PopupPanel" type="Panel" parent="Padding/CalendarComponents/VBoxContainer/DatePicker"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+offset_top = 39.0
+offset_right = 266.0
+offset_bottom = 240.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+use_parent_material = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 340.0
+offset_right = 296.0
+offset_bottom = 492.0
+mouse_filter = 2
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="DateLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "December, 31 Tuesday"
+vertical_alignment = 2
+script = ExtResource("4_xmav7")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+
+[node name="EventLabel" type="RichTextLabel" parent="PanelContainer/VBoxContainer/MarginContainer"]
+unique_name_in_owner = true
+use_parent_material = true
+clip_contents = false
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+bbcode_enabled = true
+text = "No events"
+fit_content = true
+script = ExtResource("7_4xb1u")
+
+[node name="MonthSelectPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("1_1o1me")
+layout_mode = 0
+offset_left = 114.0
+offset_top = 122.0
+offset_right = 191.0
+offset_bottom = 354.0
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="MonthItemList" type="ItemList" parent="MonthSelectPopup"]
+use_parent_material = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ef4e6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_45126")
+allow_reselect = true
+auto_height = true
+item_count = 12
+item_0/text = "January"
+item_1/text = "February"
+item_2/text = "March"
+item_3/text = "April"
+item_4/text = "May"
+item_5/text = "June"
+item_6/text = "July"
+item_7/text = "August"
+item_8/text = "September"
+item_9/text = "October"
+item_10/text = "November"
+item_11/text = "December"
+
+[node name="YearSelectPopup" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+material = ExtResource("1_1o1me")
+layout_mode = 0
+offset_left = 56.0
+offset_top = 85.0
+offset_right = 248.0
+offset_bottom = 205.0
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="YearItemList" type="ItemList" parent="YearSelectPopup"]
+use_parent_material = true
+custom_minimum_size = Vector2(176, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_ef4e6")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_45126")
+allow_reselect = true
+item_count = 5
+max_columns = 4
+same_column_width = true
+fixed_column_width = 38
+item_0/text = "2222"
+item_1/text = "2222"
+item_2/text = "3333"
+item_3/text = "4444"
+item_4/text = "5555"
+
+[connection signal="gui_input" from="Padding" to="." method="_on_padding_gui_input"]
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer/YearMinus" to="." method="_on_year_minus_pressed"]
+[connection signal="toggled" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer/YearButton" to="." method="_on_year_button_toggled"]
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/HBoxContainer/YearPlus" to="." method="_on_year_plus_pressed"]
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2/MonthMinus" to="." method="_on_month_minus_pressed"]
+[connection signal="toggled" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2/MonthButton" to="." method="_on_month_button_toggled"]
+[connection signal="pressed" from="Padding/CalendarComponents/YearCalendarContainer/VBoxContainer/MarginContainer/HBoxContainer2/MonthPlus" to="." method="_on_month_plus_pressed"]
+[connection signal="item_selected" from="Padding/CalendarComponents/VBoxContainer/Language/LanguageOptionButton" to="." method="_on_language_option_button_item_selected"]
+[connection signal="item_selected" from="Padding/CalendarComponents/VBoxContainer/FirstWeekday/FirstWeekdayOptionButton" to="." method="_on_first_weekday_option_button_item_selected"]
+[connection signal="item_selected" from="Padding/CalendarComponents/VBoxContainer/WeekNumberSystem/WeekNumberSystemOptionButton" to="." method="_on_week_number_system_option_button_item_selected"]
+[connection signal="toggled" from="Padding/CalendarComponents/VBoxContainer/WeekNumberSystem/WeekNumbersCheckButton" to="." method="_on_week_numbers_check_button_toggled"]
+[connection signal="toggled" from="Padding/CalendarComponents/VBoxContainer/DatePicker" to="." method="_on_date_picker_toggled"]
+[connection signal="item_selected" from="MonthSelectPopup/MonthItemList" to="." method="_on_month_item_list_item_selected"]
+[connection signal="item_selected" from="YearSelectPopup/YearItemList" to="." method="_on_year_item_list_item_selected"]

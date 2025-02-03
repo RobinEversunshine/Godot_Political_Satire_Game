@@ -1,0 +1,520 @@
+[gd_scene load_steps=22 format=3 uid="uid://bvanmer16opp1"]
+
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_jvrro"]
+[ext_resource type="Script" path="res://scene/call_history.gd" id="1_khcp7"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_vlbv4"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="5_2vkll"]
+[ext_resource type="PackedScene" uid="uid://dyf6ln7mujvke" path="res://Main/Components/CallHistory/history_box.tscn" id="5_ikpcv"]
+[ext_resource type="Script" path="res://Main/Common/Resource/Call.gd" id="6_ah3t2"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="6_gyroj"]
+[ext_resource type="Script" path="res://Main/Components/CallHistory/HistoryPage.gd" id="7_xkl5l"]
+[ext_resource type="Texture2D" uid="uid://dut5nhdag7by" path="res://Assets/Textures/button/back.png" id="8_4vskx"]
+
+[sub_resource type="Resource" id="Resource_nnycn"]
+script = ExtResource("6_gyroj")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_p1ywu"]
+script = ExtResource("6_gyroj")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Resource" id="Resource_n62je"]
+script = ExtResource("6_ah3t2")
+contact_name = "Miss Candleheart"
+title = "call_start"
+call_time = {
+"day": 25,
+"hour": 10,
+"minute": 5,
+"month": 12,
+"year": 2083
+}
+call_state = "missed"
+talk_time = ""
+
+[sub_resource type="Resource" id="Resource_oy2kc"]
+script = ExtResource("6_ah3t2")
+contact_name = "Miss Candleheart"
+title = "call_start"
+call_time = {
+"day": 24,
+"hour": 20,
+"minute": 15,
+"month": 12,
+"year": 2083
+}
+call_state = "missed"
+talk_time = ""
+
+[sub_resource type="Resource" id="Resource_o4bc6"]
+script = ExtResource("6_ah3t2")
+contact_name = "Miss Candleheart"
+title = "call_start"
+call_time = {
+"day": 24,
+"hour": 19,
+"minute": 28,
+"month": 12,
+"year": 2083
+}
+call_state = "missed"
+talk_time = ""
+
+[sub_resource type="Resource" id="Resource_aybs3"]
+script = ExtResource("6_ah3t2")
+contact_name = "Miss Candleheart"
+title = "call_start"
+call_time = {
+"day": 24,
+"hour": 19,
+"minute": 27,
+"month": 12,
+"year": 2083
+}
+call_state = "missed"
+talk_time = ""
+
+[sub_resource type="Resource" id="Resource_lkrci"]
+script = ExtResource("6_ah3t2")
+contact_name = "2330"
+title = "call_start"
+call_time = {
+"day": 7,
+"hour": 12,
+"minute": 15,
+"month": 12,
+"year": 2083
+}
+call_state = "out"
+talk_time = "01:03"
+
+[sub_resource type="Resource" id="Resource_m13cg"]
+script = ExtResource("6_gyroj")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_k3hed"]
+script = ExtResource("6_gyroj")
+friction = 8.0
+minimum_velocity = 0.4
+rebound_strength = 10.0
+
+[sub_resource type="Animation" id="Animation_nelr7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Recents:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Recents:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HistoryPage:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(304, 20)]
+}
+
+[sub_resource type="Animation" id="Animation_ikc4d"]
+resource_name = "into_history"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Recents:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 20), Vector2(-152, 20)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Recents:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HistoryPage:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(304, 20), Vector2(0, 20)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_00bf5"]
+_data = {
+"RESET": SubResource("Animation_nelr7"),
+"into_history": SubResource("Animation_ikc4d")
+}
+
+[node name="CallHistory" type="Control"]
+material = ExtResource("1_jvrro")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 540.0
+size_flags_horizontal = 0
+mouse_filter = 2
+theme = ExtResource("1_vlbv4")
+script = ExtResource("1_khcp7")
+history_box = ExtResource("5_ikpcv")
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Recents" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_top = 20.0
+offset_right = 304.0
+offset_bottom = 500.0
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="Recents"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="header" type="Control" parent="Recents"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -240.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Recents/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="Recents/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Recents/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Recents"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Recents"]
+use_parent_material = true
+layout_mode = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 480.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("5_2vkll")
+wheel_scroll_damper = SubResource("Resource_nnycn")
+dragging_scroll_damper = SubResource("Resource_p1ywu")
+
+[node name="MarginContainer" type="MarginContainer" parent="Recents/ScrollContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Recents/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 2
+
+[node name="HistoryBox" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_ikpcv")]
+layout_mode = 2
+mouse_filter = 1
+phone_call = SubResource("Resource_n62je")
+call_name_mission = "TLN"
+
+[node name="HistoryBox2" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_ikpcv")]
+layout_mode = 2
+mouse_filter = 1
+phone_call = SubResource("Resource_oy2kc")
+call_name_mission = "TLN"
+
+[node name="HistoryBox3" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_ikpcv")]
+layout_mode = 2
+mouse_filter = 1
+phone_call = SubResource("Resource_o4bc6")
+call_name_mission = "TLN"
+
+[node name="HistoryBox4" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_ikpcv")]
+layout_mode = 2
+mouse_filter = 1
+phone_call = SubResource("Resource_aybs3")
+call_name_mission = "TLN"
+
+[node name="HistoryBox5" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer" instance=ExtResource("5_ikpcv")]
+layout_mode = 2
+mouse_filter = 1
+phone_call = SubResource("Resource_lkrci")
+call_name_mission = "FMN"
+
+[node name="Control" type="Control" parent="Recents/ScrollContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+mouse_filter = 1
+
+[node name="HistoryPage" type="Control" parent="."]
+use_parent_material = true
+anchors_preset = 0
+offset_left = 304.0
+offset_top = 20.0
+offset_right = 608.0
+offset_bottom = 500.0
+mouse_filter = 2
+script = ExtResource("7_xkl5l")
+
+[node name="ColorRect" type="ColorRect" parent="HistoryPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.10352e-05
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="HistoryPage"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+border_width = 3.4
+
+[node name="header" type="Control" parent="HistoryPage"]
+use_parent_material = true
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 304.0
+offset_bottom = 40.0
+size_flags_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="HistoryPage/header"]
+visible = false
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="HistoryPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="NoteName" type="Label" parent="HistoryPage/header/CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Recorded Call"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer2" type="CenterContainer" parent="HistoryPage/header"]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 40.0
+offset_bottom = 20.0
+grow_vertical = 2
+
+[node name="BackButton" type="TextureButton" parent="HistoryPage/header/CenterContainer2"]
+use_parent_material = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture_normal = ExtResource("8_4vskx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Content" type="Control" parent="HistoryPage"]
+use_parent_material = true
+layout_mode = 3
+anchors_preset = 0
+offset_top = 40.0
+offset_right = 304.0
+offset_bottom = 480.0
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="HistoryPage/Content"]
+use_parent_material = true
+layout_mode = 2
+offset_right = 304.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("5_2vkll")
+wheel_scroll_damper = SubResource("Resource_m13cg")
+dragging_scroll_damper = SubResource("Resource_k3hed")
+
+[node name="MarginContainer" type="MarginContainer" parent="HistoryPage/Content/ScrollContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(304, 0)
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="HistoryContent" type="RichTextLabel" parent="HistoryPage/Content/ScrollContainer/MarginContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 1
+theme_override_constants/line_separation = 5
+bbcode_enabled = true
+text = "[center]Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+Blablablablablabla
+The answer is[color=black]Blablablablablabla"
+fit_content = true
+scroll_active = false
+
+[node name="PanelContainer" type="PanelContainer" parent="HistoryPage/Content"]
+use_parent_material = true
+layout_mode = 0
+offset_left = 8.0
+offset_top = 340.0
+offset_right = 296.0
+offset_bottom = 436.0
+theme_type_variation = &"ReversePanelContainer"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HistoryPage/Content/PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="CallName" type="Label" parent="HistoryPage/Content/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Contact Name:"
+
+[node name="DateTime" type="Label" parent="HistoryPage/Content/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Call Time:"
+
+[node name="CallTime" type="Label" parent="HistoryPage/Content/PanelContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+text = "Duration of Call:"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_00bf5")
+}
+
+[connection signal="pressed" from="HistoryPage/header/CenterContainer2/BackButton" to="." method="_on_back_button_pressed"]

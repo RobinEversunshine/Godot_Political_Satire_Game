@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Song" load_steps=4 format=3 uid="uid://p351eqardp1a"]
+
+[ext_resource type="AudioStream" uid="uid://cbv4oco8c477r" path="res://Assets/Sound/Songs/Paul Pitman - Moonlight Sonata, Op. 27 No. 2 - I. Adagio sostenuto_1.mp3" id="1_ahapt"]
+[ext_resource type="Texture2D" uid="uid://bigglgcrxxcah" path="res://Assets/Textures/photos/LVB.png" id="2_gmeqh"]
+[ext_resource type="Script" path="res://Main/Common/Sound/Song.gd" id="3_i0md1"]
+
+[resource]
+script = ExtResource("3_i0md1")
+id = "moon"
+display_name = &"Moonlight Sonata - Ludwig van Beethoven"
+audio_source = ExtResource("1_ahapt")
+cd_texture = ExtResource("2_gmeqh")

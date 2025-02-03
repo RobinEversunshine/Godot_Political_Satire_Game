@@ -1,0 +1,212 @@
+[gd_scene load_steps=10 format=3 uid="uid://yuxwfhwoblws"]
+
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_5jdfw"]
+[ext_resource type="Material" uid="uid://cw8kovgeqm575" path="res://Assets/Resource/Shaders/black_white_material.tres" id="1_sikws"]
+[ext_resource type="Script" path="res://Main/Common/cg.gd" id="3_25fv7"]
+[ext_resource type="Texture2D" uid="uid://y5yduwi3q2o2" path="res://Assets/Textures/cg/big_bother.png" id="4_xomsj"]
+[ext_resource type="Texture2D" uid="uid://br8dn5idj1s7e" path="res://Assets/Textures/cg/big_bother2.png" id="5_08xjj"]
+[ext_resource type="VideoStream" path="res://Assets/Videos/cg.ogv" id="6_8wlap"]
+
+[sub_resource type="Animation" id="Animation_fi10n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2.465, 2.465)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D2:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.835, 1.835)]
+}
+
+[sub_resource type="Animation" id="Animation_vm434"]
+resource_name = "big_bother"
+length = 15.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_xomsj")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(4, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2.465, 2.465), Vector2(2, 2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D2:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("5_08xjj")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(4, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CenterContainer/Control/ColorRect2/Sprite2D2:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1.835, 1.835)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wbwct"]
+_data = {
+"RESET": SubResource("Animation_fi10n"),
+"big_bother": SubResource("Animation_vm434")
+}
+
+[node name="CG" type="Control"]
+material = ExtResource("1_sikws")
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1024.0
+offset_bottom = 576.0
+theme = ExtResource("1_5jdfw")
+script = ExtResource("3_25fv7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -241.0
+offset_bottom = 115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Control" type="Control" parent="CenterContainer"]
+use_parent_material = true
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="CenterContainer/Control"]
+clip_children = 2
+use_parent_material = true
+layout_mode = 0
+offset_left = -276.0
+offset_top = -175.0
+offset_right = 276.0
+offset_bottom = 175.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CenterContainer/Control/ColorRect2"]
+use_parent_material = true
+position = Vector2(276, 175)
+scale = Vector2(2.465, 2.465)
+texture = ExtResource("4_xomsj")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CenterContainer/Control/ColorRect2"]
+use_parent_material = true
+position = Vector2(276, 175)
+scale = Vector2(1.835, 1.835)
+texture = ExtResource("5_08xjj")
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = 139.0
+offset_bottom = 227.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CenterContainer2"]
+use_parent_material = true
+layout_mode = 2
+text = "The Two Towers are the political heart of Oceania."
+fit_content = true
+autowrap_mode = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wbwct")
+}
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 896.0
+offset_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.53, 0.53)
+stream = ExtResource("6_8wlap")
+autoplay = true

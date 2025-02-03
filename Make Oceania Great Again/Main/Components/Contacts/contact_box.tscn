@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3 uid="uid://jgflk4oyogsx"]
+
+[ext_resource type="Script" path="res://Main/Components/Contacts/ContactBox.gd" id="1_pqhgn"]
+[ext_resource type="Theme" uid="uid://n3ns3n53r5ve" path="res://Assets/Resource/Themes/pixel/pixel_theme.tres" id="1_wfstv"]
+[ext_resource type="Texture2D" uid="uid://cim2jxa2gvuwp" path="res://Assets/Textures/ContactProfiles/default_profile_38.png" id="3_ncv8r"]
+[ext_resource type="Script" path="res://Main/Components/Missions/MissionLabel.gd" id="4_3cn22"]
+[ext_resource type="Texture2D" uid="uid://2foqbbp0ocfh" path="res://Assets/Textures/phone/call_history_icon5.png" id="4_p3lnc"]
+[ext_resource type="Texture2D" uid="uid://d2nvk6gxcouxk" path="res://Assets/Textures/phone/call_history_icon6.png" id="5_o2ja8"]
+
+[node name="ContactBox" type="Control"]
+use_parent_material = true
+custom_minimum_size = Vector2(296, 54)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 296.0
+offset_bottom = 54.0
+mouse_filter = 2
+theme = ExtResource("1_wfstv")
+script = ExtResource("1_pqhgn")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+use_parent_material = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer"]
+use_parent_material = true
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="ContactTexture" type="TextureRect" parent="PanelContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(38, 38)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+texture = ExtResource("3_ncv8r")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ContactName" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Contact Name"
+vertical_alignment = 1
+script = ExtResource("4_3cn22")
+independent = false
+
+[node name="ContactNumber" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 6
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+text = "0000"
+vertical_alignment = 1
+script = ExtResource("4_3cn22")
+independent = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer"]
+use_parent_material = true
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_constants/separation = 0
+
+[node name="CallButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("4_p3lnc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="MessageButton" type="TextureButton" parent="PanelContainer/HBoxContainer/HBoxContainer"]
+use_parent_material = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+texture_normal = ExtResource("5_o2ja8")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="PanelContainer/HBoxContainer/HBoxContainer/CallButton" to="." method="_on_call_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/HBoxContainer/HBoxContainer/CallButton" to="." method="_on_call_button_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/CallButton" to="." method="_on_call_button_pressed"]
+[connection signal="mouse_entered" from="PanelContainer/HBoxContainer/HBoxContainer/MessageButton" to="." method="_on_message_button_mouse_entered"]
+[connection signal="mouse_exited" from="PanelContainer/HBoxContainer/HBoxContainer/MessageButton" to="." method="_on_message_button_mouse_exited"]
+[connection signal="pressed" from="PanelContainer/HBoxContainer/HBoxContainer/MessageButton" to="." method="_on_message_button_pressed"]
